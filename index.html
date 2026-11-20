@@ -342,6 +342,8 @@ section{padding-block:104px;border-bottom:1px solid var(--rule)}
    ARQUITECTURA: GALERÍA CURADA EN MINIATURA + SUPER-ZOOM + BARRA SVG
    ========================================================================== */
 .gallery-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px 18px}
+.gallery-grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px 18px}
+.gallery-grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px 18px}
 .gallery-item{
   display:flex;flex-direction:column;text-align:left;padding:0;
   background:transparent;border:0;color:inherit;group:true;
@@ -655,7 +657,7 @@ footer{
 @media (max-width:1120px){
   .top nav a{padding:19px 6px;font-size:12px;gap:4px}
   .top nav a svg{width:13px;height:13px}
-  .gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .gallery-grid,.gallery-grid-3{grid-template-columns:repeat(2,minmax(0,1fr))}
   .swatch-row{grid-template-columns:repeat(3,minmax(0,1fr))}
   .hero .wrap{gap:36px}
 }
@@ -704,7 +706,7 @@ footer{
   .insight-stat:first-child{border-top:0;padding-top:0}
   .journey-track{grid-template-columns:1fr;gap:20px}
   .journey-stop{padding-left:16px;border-left:2px solid var(--rule-strong)}
-  .big-stats,.gallery-grid,.finops-pillars,.repo-list,.swatch-row,.logos-strip,.footer-top,.slo-pair{grid-template-columns:1fr}
+  .big-stats,.gallery-grid,.gallery-grid-3,.gallery-grid-2,.finops-pillars,.repo-list,.swatch-row,.logos-strip,.footer-top,.slo-pair{grid-template-columns:1fr}
   .big-stat:nth-child(2){border-top:1px solid var(--rule);padding-top:14px}
   .dossier-pullquote{font-size:18px;padding-left:14px}
   .saco-meta-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
@@ -1018,6 +1020,25 @@ footer{
       <div class="gallery-thumb"><img src="img/carga-c-saco-consulta-dr.jpg" alt="Consulta pública y DR" loading="lazy"><span class="gallery-zoom-hint">Ampliar</span></div>
       <div class="gallery-caption"><span class="gallery-kicker">Carga C · #15</span><h3>Consulta del Saco y DR</h3><p>CloudFront + WAF + ALB y conmutación Route 53 hacia us-east-2 en &lt; 1 min.</p></div>
     </button>
+  </div>
+
+  <!-- Diagramas de Secuencia Clave (UML/AWS con íconos oficiales) -->
+  <div style="margin-top:28px;padding-top:24px;border-top:1px solid var(--rule)">
+    <div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:10px;margin-bottom:14px">
+      <h3>Diagramas de Secuencia Críticos (Autorización MFA y Protección Ley 1581)</h3>
+      <span class="mono" style="font-size:12px;color:var(--muted)">Clic para abrir en Super-Zoom</span>
+    </div>
+    <div class="gallery-grid-2 stagger">
+      <button type="button" class="gallery-item" data-zoom-img="img/carga-b-secuencia-fumigacion.jpg" data-zoom-title="Carga B · Secuencia de Detección de Plaga, Compuerta MFA del Agrónomo y Cierre (#13 y #14)" data-zoom-doc="carga-b-orden-fumigacion">
+        <div class="gallery-thumb" style="aspect-ratio:16/9"><img src="img/carga-b-secuencia-fumigacion.jpg" alt="Secuencia detección de plaga a fumigación con MFA" loading="lazy"><span class="gallery-zoom-hint">Ampliar secuencia</span></div>
+        <div class="gallery-caption"><span class="gallery-kicker">Secuencia Drones · #13 y #14</span><h3>Plaga a Fumigación (Compuerta MFA)</h3><p>Sensor IoT → Rekognition/Bedrock → firma humana obligatoria del Agrónomo → bitácora y cierre S4.</p></div>
+      </button>
+
+      <button type="button" class="gallery-item" data-zoom-img="img/seguridad-secuencia-proteccion-datos.jpg" data-zoom-title="Seguridad · Secuencia de Protección de Datos, Token HMAC-SHA-256 y Consulta Sin PII (Ley 1581)" data-zoom-doc="seguridad-datos-saco">
+        <div class="gallery-thumb" style="aspect-ratio:16/9"><img src="img/seguridad-secuencia-proteccion-datos.jpg" alt="Secuencia de protección de datos Ley 1581" loading="lazy"><span class="gallery-zoom-hint">Ampliar secuencia</span></div>
+        <div class="gallery-caption"><span class="gallery-kicker">Secuencia Privacidad · #5</span><h3>Protección de Datos y Consulta del Saco</h3><p>Alta en finca → KMS HMAC-SHA-256 → separación física hacia <code>sacos_publicos</code> sin cédula ni GPS.</p></div>
+      </button>
+    </div>
   </div>
 
   <!-- Gráfica SVG limpia de mezcla de conectividad (200 fincas) -->
@@ -1415,6 +1436,30 @@ footer{
     </button>
   </div>
 
+  <!-- Láminas individuales separadas por aplicación para máxima claridad -->
+  <div style="margin-bottom:36px;padding-top:24px;border-top:1px solid var(--rule)">
+    <div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:10px;margin-bottom:14px">
+      <h3>Láminas Individuales por Aplicación (Detalle Ampliado)</h3>
+      <span class="mono" style="font-size:12px;color:var(--green);font-weight:700">Separadas en 3 vistas para lectura clara por público externo</span>
+    </div>
+    <div class="gallery-grid-3 stagger">
+      <button type="button" class="gallery-item" data-zoom-img="img/lamina-app-caficultor.svg" data-zoom-title="Lámina 1 de 3 · Aplicación Móvil del Caficultor (Campo Abierto y Sol > 80.000 lux)" data-zoom-doc="sistema-de-diseno-aromapacifico">
+        <div class="gallery-thumb"><img src="img/lamina-app-caficultor.svg" alt="Lámina App Móvil del Caficultor" loading="lazy"><span class="gallery-zoom-hint">Super-Zoom</span></div>
+        <div class="gallery-caption"><span class="gallery-kicker">Lámina 1 / 3 · Campo</span><h3>App Móvil del Caficultor</h3><p>Contraste solar AAA (&gt; 7:1), botones 56 px, báscula 60 kg y buffer 24 h.</p></div>
+      </button>
+
+      <button type="button" class="gallery-item" data-zoom-img="img/lamina-app-transportador.svg" data-zoom-title="Lámina 2 de 3 · Aplicación Móvil del Transportador (Cabina a 65 cm · ISO 15008)" data-zoom-doc="sistema-de-diseno-aromapacifico">
+        <div class="gallery-thumb"><img src="img/lamina-app-transportador.svg" alt="Lámina App Móvil del Transportador" loading="lazy"><span class="gallery-zoom-hint">Super-Zoom</span></div>
+        <div class="gallery-caption"><span class="gallery-kicker">Lámina 2 / 3 · Cabina</span><h3>App Móvil del Transportador</h3><p>Métrica 32 px Heavy, guarda táctil 12 px, GPS SQLite offline y entrega en puerto.</p></div>
+      </button>
+
+      <button type="button" class="gallery-item" data-zoom-img="img/lamina-portal-comprador.svg" data-zoom-title="Lámina 3 de 3 · Portal Web Público del Comprador Internacional (Ley 1581)" data-zoom-doc="sistema-de-diseno-aromapacifico">
+        <div class="gallery-thumb"><img src="img/lamina-portal-comprador.svg" alt="Lámina Portal Web del Comprador" loading="lazy"><span class="gallery-zoom-hint">Super-Zoom</span></div>
+        <div class="gallery-caption"><span class="gallery-kicker">Lámina 3 / 3 · Comprador</span><h3>Portal Web del Comprador</h3><p>Consulta pública por código HMAC-SHA-256 sin PII ni rutas (Ley 1581).</p></div>
+      </button>
+    </div>
+  </div>
+
   <!-- Paleta copiable y Variantes de marca -->
   <div class="split-2" style="padding-top:28px;border-top:1px solid var(--rule)">
     <div>
@@ -1607,7 +1652,7 @@ footer{
         <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
         <h3>planning</h3>
       </div>
-      <span class="repo-stat">46 Markdown · 34 Diagramas SVG/Draw.io</span>
+      <span class="repo-stat">46 Markdown · 37 Diagramas SVG/Draw.io</span>
       <p>Arquitectura, FinOps, gestión del cambio, tokens DTCG, láminas y sustentación.</p>
     </a>
 
