@@ -5,20 +5,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="color-scheme" content="light">
 <meta name="theme-color" content="#061A11">
-<meta name="description" content="AromaPacífico (FNC 2026): trazabilidad cafetera diseñada para operar sin cobertura celular, Terraform en 100 horas, ahorro FinOps de 74,5 % y System Design AAA.">
+<meta name="description" content="AromaPacífico (FNC 2026): plataforma de trazabilidad cafetera diseñada para operar sin cobertura celular, desde la finca hasta el puerto de Buenaventura.">
 <link rel="icon" href="img/isotipo.svg" type="image/svg+xml">
 <title>AromaPacífico · Trazabilidad cafetera sin señal</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap">
 <style>
 /* ==========================================================================
-   AROMAPACÍFICO · DISEÑO EDITORIAL SOBRIO (INSPIRACIÓN FRÍOANDES / SWISS)
+   AROMAPACÍFICO · SISTEMA EDITORIAL EN POPPINS
    ========================================================================== */
 :root{
   --dark-bg:#061A11;
   --dark-bg-2:#0B2B1C;
-  --dark-surface:#0D2E1E;
   --dark-line:rgba(255,255,255,.11);
   --dark-text:#EDF5F0;
   --dark-muted:#9AB8A7;
@@ -27,7 +26,6 @@
 
   --paper:#FFFFFF;
   --surface:#F6F8F7;
-  --warm:#FAF8F5;
   --ink:#0B1612;
   --body:#334155;
   --muted:#64748B;
@@ -41,24 +39,22 @@
   --pacific:#0F4C81;
   --amber:#B45309;
 
-  --font-display:"Space Grotesk","Inter",system-ui,sans-serif;
-  --font-sans:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
-  --font-mono:"DM Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+  --font-main:"Poppins",system-ui,-apple-system,"Segoe UI",sans-serif;
 }
 
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:76px;background:var(--paper);color:var(--body);overflow-x:clip}
 body{
   margin:0;background:var(--paper);color:var(--body);
-  font-family:var(--font-sans);font-size:16px;line-height:1.65;
+  font-family:var(--font-main);font-size:15.5px;line-height:1.68;
   -webkit-font-smoothing:antialiased;overflow-x:clip;
 }
 a{color:var(--green);text-underline-offset:3px}
-button{font-family:inherit;cursor:pointer}
+button{font-family:var(--font-main);cursor:pointer}
 img{display:block;max-width:100%}
-code{font-family:var(--font-mono);font-size:.88em}
+code{font-family:var(--font-main);font-weight:600;font-size:.92em;background:#F1F5F3;padding:1px 5px;border-radius:4px;color:var(--ink)}
 a:focus-visible,button:focus-visible,input:focus-visible,[tabindex]:focus-visible{
-  outline:2px solid var(--mint-solid);outline-offset:3px;border-radius:3px;
+  outline:2px solid var(--mint-solid);outline-offset:3px;border-radius:4px;
 }
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 
@@ -66,29 +62,25 @@ a:focus-visible,button:focus-visible,input:focus-visible,[tabindex]:focus-visibl
   max-width:1220px;margin:0 auto;
   padding-inline:clamp(20px,4vw,40px);
 }
-.wrap > *,.split-2 > *,.mission-grid > *,.featured-diagram > *,.explorer-body > *{min-width:0}
+.wrap > *,.mission-grid > *,.featured-diagram > *,.explorer-body > *,.clock-panel > *{min-width:0}
 
-/* Tipografía editorial en dos tonos (peso 700 + peso 300) */
-h1,h2,h3,h4{font-family:var(--font-display);margin:0;color:var(--ink);letter-spacing:-0.025em;line-height:1.12}
-h2{font-size:clamp(30px,3.8vw,46px);font-weight:700}
+h1,h2,h3,h4{font-family:var(--font-main);margin:0;color:var(--ink);letter-spacing:-0.025em;line-height:1.16}
+h2{font-size:clamp(28px,3.6vw,44px);font-weight:700}
 h2 span{font-weight:300;color:var(--green);display:block}
-h2 span.inline{display:inline}
-h3{font-size:20px;font-weight:600;letter-spacing:-0.015em}
+h3{font-size:19px;font-weight:600;letter-spacing:-0.015em}
 p{margin:0}
-.mono{font-family:var(--font-mono);font-variant-numeric:tabular-nums}
 .num{font-variant-numeric:tabular-nums}
 
-/* Animaciones discretas */
 .reveal{opacity:1;transform:none;transition:opacity .6s cubic-bezier(.22,1,.36,1),transform .6s cubic-bezier(.22,1,.36,1)}
 .js-ready .reveal{opacity:0;transform:translateY(16px)}
 .js-ready .reveal.is-visible{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
-  .reveal,.js-ready .reveal{opacity:1!important;transform:none!important;transition:none!important}
+  .reveal,.js-ready .reveal,.sack-float,.pulse-ring,.orbit-dash{opacity:1!important;transform:none!important;transition:none!important;animation:none!important}
 }
 
 /* ==========================================================================
-   HEADER MINIMALISTA (5 ENLACES + 1 CTA, SIN RUIDO VISUAL)
+   HEADER LIMPIO (5 ENLACES + 1 CTA)
    ========================================================================== */
 .site-header{
   position:sticky;top:0;z-index:50;
@@ -102,29 +94,27 @@ p{margin:0}
 }
 .brand{
   display:inline-flex;align-items:center;gap:10px;
-  text-decoration:none;color:#FFFFFF;font-family:var(--font-display);
-  font-size:19px;font-weight:400;letter-spacing:-0.02em;flex-shrink:0;
+  text-decoration:none;color:#FFFFFF;font-size:18px;font-weight:400;letter-spacing:-0.02em;flex-shrink:0;
 }
 .brand img{height:30px;width:30px}
 .brand b{font-weight:700;color:var(--mint)}
 
-.site-nav{display:flex;align-items:center;gap:28px}
+.site-nav{display:flex;align-items:center;gap:26px}
 .site-nav a{
-  font-family:var(--font-mono);font-size:11.5px;letter-spacing:.11em;
-  text-transform:uppercase;text-decoration:none;color:var(--dark-muted);
-  transition:color .18s ease;
+  font-size:12.5px;font-weight:500;letter-spacing:.04em;
+  text-decoration:none;color:var(--dark-muted);transition:color .18s ease;
 }
 .site-nav a:hover,.site-nav a.is-active{color:#FFFFFF}
 .site-nav .nav-cta{
-  padding:9px 16px;border:1px solid rgba(110,231,183,.45);border-radius:3px;
-  color:#FFFFFF;transition:background-color .18s ease,border-color .18s ease,color .18s ease;
+  padding:9px 16px;border:1px solid rgba(110,231,183,.45);border-radius:5px;
+  color:#FFFFFF;font-weight:600;transition:background-color .18s ease,border-color .18s ease,color .18s ease;
 }
 .site-nav .nav-cta:hover{background:var(--mint);border-color:var(--mint);color:var(--dark-bg)}
 
 .menu-toggle{
   display:none;align-items:center;gap:8px;height:40px;padding:0 14px;
-  background:transparent;border:1px solid rgba(255,255,255,.24);border-radius:3px;
-  color:#FFFFFF;font-family:var(--font-mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;
+  background:transparent;border:1px solid rgba(255,255,255,.24);border-radius:5px;
+  color:#FFFFFF;font-size:12.5px;font-weight:500;
 }
 .mobile-drawer{
   display:none;background:#082216;border-bottom:1px solid var(--dark-line);
@@ -133,161 +123,175 @@ p{margin:0}
 .mobile-drawer.is-open{display:grid;gap:4px}
 .mobile-drawer a{
   display:block;padding:12px 10px;color:#E2EFE7;text-decoration:none;
-  font-family:var(--font-mono);font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;
-  border-bottom:1px solid rgba(255,255,255,.06);
+  font-size:13.5px;font-weight:500;border-bottom:1px solid rgba(255,255,255,.06);
 }
 .mobile-drawer a:last-child{border-bottom:0;color:var(--mint)}
 
 /* ==========================================================================
-   HERO ATMOSFÉRICO EDITORIAL (SIN CAJAS DE DASHBOARD ENCIMA)
+   HERO BANNER CON ILUSTRACIÓN ANIMADA DE SACO DE CAFÉ Y TRAZABILIDAD
    ========================================================================== */
 .hero{
   position:relative;overflow:hidden;
-  background:radial-gradient(ellipse 75% 70% at 78% 36%, rgba(16,185,129,.16), transparent 65%),
-             linear-gradient(180deg, #061A11 0%, #092618 100%);
+  background:radial-gradient(ellipse 68% 68% at 76% 40%, rgba(16,185,129,.16), transparent 64%),
+             linear-gradient(180deg, #061A11 0%, #092719 100%);
   color:var(--dark-text);
 }
 .hero-main{
-  padding-block:clamp(68px,9vw,116px) clamp(56px,7vw,86px);
-  display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);
-  gap:48px;align-items:center;
+  padding-block:clamp(60px,7.5vw,100px) clamp(48px,6vw,74px);
+  display:grid;grid-template-columns:minmax(0,1.12fr) minmax(0,.88fr);
+  gap:44px;align-items:center;
 }
 .hero-eyebrow{
-  font-family:var(--font-mono);font-size:12px;letter-spacing:.12em;
-  text-transform:uppercase;color:var(--mint);margin-bottom:20px;display:block;
+  font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--mint);margin-bottom:16px;display:inline-block;
 }
 .hero h1{
-  color:#FFFFFF;font-size:clamp(40px,5.6vw,68px);font-weight:700;
-  line-height:1.04;letter-spacing:-0.035em;
+  color:#FFFFFF;font-size:clamp(38px,5.1vw,62px);font-weight:700;
+  line-height:1.08;letter-spacing:-0.03em;
 }
 .hero h1 em{
   display:block;font-style:normal;font-weight:300;color:var(--mint);margin-top:4px;
 }
 .hero-lede{
-  margin-top:24px;max-width:52ch;font-size:17.5px;line-height:1.65;color:#C2D9CC;
+  margin-top:22px;max-width:54ch;font-size:16.5px;font-weight:400;line-height:1.7;color:#C8DDD1;
 }
 .hero-actions{
-  margin-top:34px;display:flex;flex-wrap:wrap;align-items:center;gap:24px;
+  margin-top:32px;display:flex;flex-wrap:wrap;align-items:center;gap:22px;
 }
 .btn-primary{
-  display:inline-flex;align-items:center;gap:10px;padding:14px 24px;border-radius:3px;
+  display:inline-flex;align-items:center;gap:10px;padding:13px 24px;border-radius:6px;
   background:var(--mint-solid);color:#041A10;border:0;text-decoration:none;
-  font-family:var(--font-mono);font-size:12px;font-weight:500;letter-spacing:.09em;text-transform:uppercase;
+  font-size:13.5px;font-weight:600;letter-spacing:.01em;
   transition:transform .16s ease,background-color .16s ease;
 }
 .btn-primary:hover{background:#34D399;transform:translateY(-1px)}
 .btn-outline{
-  display:inline-flex;align-items:center;gap:8px;padding:11px 18px;border-radius:3px;
+  display:inline-flex;align-items:center;gap:8px;padding:10px 18px;border-radius:6px;
   background:transparent;color:var(--ink);border:1px solid var(--line-strong);text-decoration:none;
-  font-family:var(--font-mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;
-  transition:border-color .16s ease,color .16s ease;
+  font-size:13px;font-weight:600;transition:border-color .16s ease,color .16s ease;
 }
 .btn-outline:hover{border-color:var(--green);color:var(--green)}
 .text-link{
-  display:inline-flex;align-items:center;gap:8px;padding-bottom:5px;
-  font-family:var(--font-mono);font-size:12px;letter-spacing:.09em;text-transform:uppercase;
-  color:#DCEEE4;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.32);
-  transition:color .16s ease,border-color .16s ease;
+  display:inline-flex;align-items:center;gap:8px;padding-bottom:4px;
+  font-size:13.5px;font-weight:500;color:#DCEEE4;text-decoration:none;
+  border-bottom:1px solid rgba(255,255,255,.32);transition:color .16s ease,border-color .16s ease;
 }
 .text-link:hover{color:var(--mint);border-bottom-color:var(--mint)}
 
-/* Escultura geométrica de 5 capas de la plataforma (inspirada en FríoAndes) */
-.hero-visual{
-  display:grid;place-items:center;min-height:320px;position:relative;
-}
-.layer-stack{
-  position:relative;width:300px;height:300px;display:grid;place-items:center;
-}
-.layer-stack i{
-  position:absolute;width:190px;height:190px;border-radius:10px;
-  transform:rotateX(58deg) rotateZ(45deg);
-  border:1px solid rgba(110,231,183,.28);
-  transition:transform .5s cubic-bezier(.22,1,.36,1);
-}
-.layer-stack i:nth-child(1){top:108px;background:linear-gradient(135deg,rgba(16,185,129,.18),rgba(6,95,70,.35))}
-.layer-stack i:nth-child(2){top:82px;background:linear-gradient(135deg,rgba(16,185,129,.26),rgba(15,118,110,.42))}
-.layer-stack i:nth-child(3){top:56px;background:linear-gradient(135deg,rgba(52,211,153,.36),rgba(16,185,129,.52))}
-.layer-stack i:nth-child(4){top:30px;background:linear-gradient(135deg,rgba(110,231,183,.52),rgba(16,185,129,.62))}
-.layer-stack i:nth-child(5){top:4px;background:linear-gradient(135deg,rgba(209,250,229,.84),rgba(52,211,153,.62));box-shadow:0 24px 60px rgba(0,0,0,.35)}
-.hero-visual:hover .layer-stack i:nth-child(5){transform:translateY(-8px) rotateX(58deg) rotateZ(45deg)}
-.hero-visual:hover .layer-stack i:nth-child(4){transform:translateY(-4px) rotateX(58deg) rotateZ(45deg)}
-.stack-caption{
-  margin-top:14px;font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;
-  text-transform:uppercase;color:var(--dark-muted);text-align:center;
-}
+/* Escena animada del Saco de Café (60 kg) con ondas de trazabilidad */
+.hero-visual{display:grid;place-items:center;position:relative}
+.hero-art{width:100%;max-width:440px;height:auto;overflow:visible}
 
-/* Banda inferior del Hero: 4 cifras limpias divididas por hairline */
+@keyframes floatSack{
+  0%,100%{transform:translateY(0px)}
+  50%{transform:translateY(-9px)}
+}
+@keyframes pulseSignal{
+  0%{opacity:.55;transform:scale(.94)}
+  50%{opacity:.15;transform:scale(1.06)}
+  100%{opacity:.55;transform:scale(.94)}
+}
+@keyframes dashFlow{
+  from{stroke-dashoffset:48}
+  to{stroke-dashoffset:0}
+}
+@keyframes floatTag{
+  0%,100%{transform:translateY(0px)}
+  50%{transform:translateY(-5px)}
+}
+.sack-float{animation:floatSack 5.2s ease-in-out infinite;transform-origin:center}
+.pulse-ring{animation:pulseSignal 4.2s ease-in-out infinite;transform-origin:220px 195px}
+.pulse-ring.r2{animation-delay:1.4s}
+.orbit-dash{stroke-dasharray:6 6;animation:dashFlow 3.5s linear infinite}
+.tag-float{animation:floatTag 4.6s ease-in-out infinite}
+.tag-float.t2{animation-delay:1.2s}
+
+/* Banda inferior del Hero: 4 cifras editoriales naturales */
 .hero-stats{
   border-top:1px solid var(--dark-line);
   display:grid;grid-template-columns:repeat(4,minmax(0,1fr));
 }
 .hero-stats article{
-  padding:26px 24px 30px;border-left:1px solid var(--dark-line);
-  display:flex;align-items:center;gap:16px;
+  padding:26px 22px 30px;border-left:1px solid var(--dark-line);
+  display:grid;gap:6px;align-content:start;
 }
 .hero-stats article:first-child{border-left:0;padding-left:0}
 .hero-stats strong{
-  font-family:var(--font-display);font-size:clamp(26px,2.8vw,34px);
-  font-weight:600;color:#FFFFFF;letter-spacing:-0.03em;white-space:nowrap;
+  font-size:clamp(24px,2.5vw,31px);font-weight:700;color:#FFFFFF;
+  letter-spacing:-0.025em;line-height:1.1;
 }
 .hero-stats span{
-  font-family:var(--font-mono);font-size:11px;line-height:1.45;
-  letter-spacing:.06em;text-transform:uppercase;color:var(--dark-muted);
+  font-size:13px;font-weight:400;line-height:1.45;color:var(--dark-muted);
 }
 
 /* ==========================================================================
    SECCIONES Y RITMO EDITORIAL
    ========================================================================== */
-section{padding-block:clamp(72px,8vw,112px);border-bottom:1px solid var(--line)}
+section{padding-block:clamp(70px,7.5vw,108px);border-bottom:1px solid var(--line)}
 .bg-soft{background:var(--surface)}
-.bg-warm{background:var(--warm)}
 
 .sec-head{
   display:flex;justify-content:space-between;align-items:flex-end;
   flex-wrap:wrap;gap:20px 48px;margin-bottom:44px;
 }
-.sec-lead{max-width:50ch;font-size:16px;color:var(--muted);line-height:1.65}
+.sec-lead{max-width:54ch;font-size:15.5px;color:var(--muted);line-height:1.7}
 
-/* Misión / Historia del Reto (layout asimétrico igual a FríoAndes) */
 .mission-grid{
   display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);
   gap:clamp(32px,5vw,72px);align-items:start;
 }
-.mission-body{display:grid;gap:18px;font-size:16.5px;color:var(--body)}
+.mission-body{display:grid;gap:18px;font-size:16px;color:var(--body)}
 .constraint-box{
-  margin-top:8px;padding:14px 18px;border-left:3px solid var(--green);
-  background:var(--surface);display:grid;gap:4px;
+  margin-top:6px;padding:16px 20px;border-left:3px solid var(--green);
+  background:var(--surface);border-radius:0 8px 8px 0;display:grid;gap:4px;
 }
-.constraint-box span{
-  font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;
-  text-transform:uppercase;color:var(--green);font-weight:500;
-}
-.constraint-box strong{font-size:15.5px;color:var(--ink)}
+.constraint-box span{font-size:11.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--green)}
+.constraint-box strong{font-size:15px;font-weight:600;color:var(--ink)}
 
-/* Viaje del café: 5 pasos limpios sin cajas ruidosas */
-.journey-strip{
-  margin-top:56px;padding-top:40px;border-top:1px solid var(--line);
-  display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:24px;
+/* Línea de tiempo visual del recorrido del café (Finca -> Comprador) */
+.journey-board{
+  margin-top:54px;padding:34px 30px;border:1px solid var(--line);border-radius:12px;
+  background:var(--surface);
 }
-.journey-step{display:grid;gap:8px;align-content:start}
-.journey-num{
-  font-family:var(--font-mono);font-size:11.5px;color:var(--green);
-  letter-spacing:.08em;font-weight:500;
+.journey-board-head{
+  display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px;margin-bottom:30px;
 }
-.journey-step h3{font-size:17px;font-weight:700}
-.journey-step p{font-size:14px;color:var(--muted);line-height:1.5}
+.journey-board-head h3{font-size:17px;font-weight:600;color:var(--ink)}
+.journey-board-head span{font-size:13px;color:var(--muted)}
+.journey-line{
+  position:relative;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:18px;
+}
+.journey-line::before{
+  content:"";position:absolute;top:30px;left:10%;right:10%;height:2px;
+  background:repeating-linear-gradient(90deg, var(--green) 0 8px, transparent 8px 15px);
+  opacity:.42;z-index:0;
+}
+.j-node{
+  position:relative;z-index:1;display:grid;justify-items:center;text-align:center;gap:10px;align-content:start;
+}
+.j-icon{
+  width:60px;height:60px;border-radius:50%;background:#FFFFFF;
+  border:2px solid var(--green);color:var(--green);
+  display:grid;place-items:center;box-shadow:0 6px 18px rgba(19,94,52,.08);
+  transition:transform .2s ease,background-color .2s ease,color .2s ease;
+}
+.j-node:hover .j-icon{transform:translateY(-3px);background:var(--green);color:#FFFFFF}
+.j-node.is-accent .j-icon{border-color:var(--pacific);color:var(--pacific)}
+.j-node.is-accent:hover .j-icon{background:var(--pacific);color:#FFFFFF}
+.j-step{font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--green)}
+.j-node h4{font-size:15.5px;font-weight:700;color:var(--ink)}
+.j-node p{font-size:13px;color:var(--muted);line-height:1.45;max-width:19ch}
 
 /* ==========================================================================
-   OPERACIÓN INTERACTIVA: MES NORMAL VS COSECHA + VENTANA DE CONGELAMIENTO
+   OPERACIÓN INTERACTIVA + RELOJ CIRCULAR 24H DE VENTANA PROTEGIDA
    ========================================================================== */
 .mode-switch{
   display:inline-flex;background:#FFFFFF;border:1px solid var(--line-strong);
-  border-radius:4px;padding:4px;gap:4px;
+  border-radius:7px;padding:4px;gap:4px;
 }
 .mode-switch button{
-  border:0;background:transparent;padding:9px 16px;border-radius:3px;
-  font-family:var(--font-mono);font-size:11.5px;letter-spacing:.07em;
-  text-transform:uppercase;color:var(--muted);transition:all .16s ease;
+  border:0;background:transparent;padding:9px 18px;border-radius:5px;
+  font-size:12.5px;font-weight:600;color:var(--muted);transition:all .16s ease;
 }
 .mode-switch button.active{background:var(--green);color:#FFFFFF}
 
@@ -295,94 +299,68 @@ section{padding-block:clamp(72px,8vw,112px);border-bottom:1px solid var(--line)}
   display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;
 }
 .metric-card{
-  background:#FFFFFF;border:1px solid var(--line);border-radius:8px;
-  padding:24px;display:grid;gap:10px;align-content:start;
+  background:#FFFFFF;border:1px solid var(--line);border-radius:10px;
+  padding:24px;display:grid;gap:8px;align-content:start;
 }
-.metric-label{
-  font-family:var(--font-mono);font-size:11px;letter-spacing:.09em;
-  text-transform:uppercase;color:var(--muted);
-}
-.metric-card strong{
-  font-family:var(--font-display);font-size:clamp(28px,2.8vw,36px);
-  font-weight:700;color:var(--ink);line-height:1.05;
-}
-.metric-card p{font-size:13.5px;color:var(--muted);line-height:1.45}
+.metric-label{font-size:12px;font-weight:600;color:var(--muted)}
+.metric-card strong{font-size:clamp(26px,2.6vw,34px);font-weight:700;color:var(--ink);line-height:1.1}
+.metric-card p{font-size:13.5px;color:var(--muted);line-height:1.5}
 .metric-meter{height:6px;background:#E8EFEA;border-radius:999px;overflow:hidden;margin-top:6px}
 .metric-meter i{display:block;height:100%;background:var(--green);border-radius:999px;transition:width .35s ease}
-.metric-note{
-  margin-top:4px;font-family:var(--font-mono);font-size:11px;letter-spacing:.06em;
-  text-transform:uppercase;color:var(--green);font-weight:500;
-}
+.metric-note{margin-top:4px;font-size:12px;font-weight:600;color:var(--green)}
 
-/* Barra de ventana de congelamiento en cosecha (inspirada en Alert Routing de FríoAndes) */
-.freeze-panel{
-  margin-top:20px;background:#FFFFFF;border:1px solid var(--line);border-radius:8px;
-  padding:24px 26px;display:grid;gap:16px;
+/* Panel amigable con Reloj Circular 24h */
+.clock-panel{
+  margin-top:24px;background:#FFFFFF;border:1px solid var(--line);border-radius:12px;
+  padding:30px 32px;display:grid;grid-template-columns:230px minmax(0,1fr);
+  gap:36px;align-items:center;
 }
-.freeze-top{
-  display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:12px 24px;
-}
-.freeze-badge{display:inline-flex;align-items:center;gap:10px}
-.live-dot{width:9px;height:9px;border-radius:50%;background:var(--cherry);display:inline-block}
-.freeze-badge small{display:block;font-family:var(--font-mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
-.freeze-badge strong{font-size:15px;color:var(--ink)}
-.shift-bar{
-  display:grid;grid-template-columns:5fr 13fr 6fr;border-radius:6px;overflow:hidden;
-  font-family:var(--font-mono);font-size:11.5px;font-weight:500;letter-spacing:.05em;
-}
-.shift-safe{background:#E6F4EC;color:var(--green-deep);padding:12px 14px;text-align:center}
-.shift-freeze{background:#FDECEC;color:var(--cherry);padding:12px 14px;text-align:center;border-inline:1px solid #F5C2C2}
-
-/* Conectividad rural limpia */
-.mix-strip{
-  margin-top:22px;background:#FFFFFF;border:1px solid var(--line);border-radius:8px;
-  padding:22px 26px;display:grid;gap:14px;
-}
-.mix-bar{display:flex;height:12px;border-radius:999px;overflow:hidden;gap:3px}
-.mix-legend{display:flex;flex-wrap:wrap;gap:12px 28px;font-size:13.5px;color:var(--body)}
-.mix-legend span{display:inline-flex;align-items:center;gap:8px}
-.mix-legend i{width:10px;height:10px;border-radius:2px;display:inline-block}
+.clock-dial-wrap{display:grid;place-items:center}
+.clock-copy{display:grid;gap:14px}
+.clock-copy h3{font-size:20px;font-weight:700;color:var(--ink)}
+.clock-copy p{font-size:14.5px;color:var(--body);line-height:1.65;max-width:64ch}
+.clock-legend{display:flex;flex-wrap:wrap;gap:12px 26px;font-size:13.5px;color:var(--ink);font-weight:500}
+.clock-legend span{display:inline-flex;align-items:center;gap:9px}
+.clock-legend i{width:12px;height:12px;border-radius:50%;display:inline-block}
 
 /* ==========================================================================
-   ARQUITECTURA: FEATURED SPOTLIGHT + GALERÍA SUPER-ZOOM (INTACTA Y MEJORADA)
+   ARQUITECTURA: FEATURED SPOTLIGHT + GALERÍA SUPER-ZOOM
    ========================================================================== */
 .featured-diagram{
   display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,.85fr);
   gap:32px;align-items:center;
-  background:var(--surface);border:1px solid var(--line);border-radius:10px;
+  background:var(--surface);border:1px solid var(--line);border-radius:12px;
   padding:24px;margin-bottom:44px;
 }
 .featured-visual{
-  position:relative;border:1px solid var(--line-strong);border-radius:6px;
+  position:relative;border:1px solid var(--line-strong);border-radius:8px;
   overflow:hidden;background:#FFFFFF;padding:0;text-align:left;width:100%;
   transition:border-color .2s ease,box-shadow .2s ease;
 }
 .featured-visual:hover{border-color:var(--green);box-shadow:0 12px 28px rgba(11,22,18,.08)}
 .featured-visual img{width:100%;height:auto;display:block}
 .featured-expand{
-  position:absolute;right:12px;bottom:12px;padding:7px 12px;border-radius:4px;
-  background:rgba(6,26,17,.9);color:#FFFFFF;font-family:var(--font-mono);
-  font-size:11px;letter-spacing:.08em;text-transform:uppercase;
+  position:absolute;right:12px;bottom:12px;padding:7px 13px;border-radius:5px;
+  background:rgba(6,26,17,.9);color:#FFFFFF;font-size:11.5px;font-weight:600;
 }
 .featured-copy{display:grid;gap:16px;align-content:start}
-.featured-copy p{font-size:15px;color:var(--body);line-height:1.6}
+.featured-copy p{font-size:15px;color:var(--body);line-height:1.65}
 .meta-dl{
   margin:0;display:grid;gap:10px;padding-block:14px;
   border-top:1px solid var(--line);border-bottom:1px solid var(--line);
 }
 .meta-dl div{display:flex;justify-content:space-between;gap:12px;font-size:13.5px}
 .meta-dl dt{color:var(--muted)}
-.meta-dl dd{margin:0;font-family:var(--font-mono);font-size:12.5px;color:var(--ink);font-weight:500;text-align:right}
+.meta-dl dd{margin:0;font-size:13px;color:var(--ink);font-weight:600;text-align:right}
 
 .sub-head{
   display:flex;justify-content:space-between;align-items:baseline;
   flex-wrap:wrap;gap:10px;margin-bottom:18px;
 }
 .sub-head h3{font-size:19px;font-weight:700}
-.sub-head span{font-family:var(--font-mono);font-size:12px;color:var(--muted)}
+.sub-head span{font-size:13px;color:var(--muted)}
 
 .gallery-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px 18px}
-.gallery-grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px 18px}
 .gallery-grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 18px}
 .gallery-item{
   display:flex;flex-direction:column;text-align:left;padding:0;
@@ -390,65 +368,51 @@ section{padding-block:clamp(72px,8vw,112px);border-bottom:1px solid var(--line)}
 }
 .gallery-thumb{
   position:relative;aspect-ratio:16/10;width:100%;
-  background:#FFFFFF;border:1px solid var(--line-strong);border-radius:6px;
+  background:#FFFFFF;border:1px solid var(--line-strong);border-radius:8px;
   overflow:hidden;transition:border-color .18s ease,box-shadow .18s ease;
 }
 .gallery-item:hover .gallery-thumb{border-color:var(--green);box-shadow:0 8px 20px rgba(11,22,18,.07)}
 .gallery-thumb img{width:100%;height:100%;object-fit:cover;transition:transform .3s ease}
 .gallery-item:hover .gallery-thumb img{transform:scale(1.03)}
 .gallery-zoom-hint{
-  position:absolute;right:8px;bottom:8px;padding:4px 9px;border-radius:3px;
-  background:rgba(6,26,17,.88);color:#FFFFFF;font-family:var(--font-mono);
-  font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;
+  position:absolute;right:8px;bottom:8px;padding:4px 10px;border-radius:4px;
+  background:rgba(6,26,17,.88);color:#FFFFFF;font-size:11px;font-weight:600;
   opacity:0;transform:translateY(3px);transition:opacity .18s ease,transform .18s ease;
 }
 .gallery-item:hover .gallery-zoom-hint,.gallery-item:focus-visible .gallery-zoom-hint{opacity:1;transform:none}
 @media (hover:none){.gallery-zoom-hint{opacity:.92;transform:none}}
 .gallery-caption{padding-top:11px;display:grid;gap:4px}
-.gallery-kicker{font-family:var(--font-mono);font-size:11px;color:var(--green);letter-spacing:.06em;text-transform:uppercase}
+.gallery-kicker{font-size:11.5px;font-weight:600;color:var(--green)}
 .gallery-caption h4{font-size:15.5px;font-weight:700;color:var(--ink)}
-.gallery-caption p{font-size:13.5px;color:var(--muted);line-height:1.45}
+.gallery-caption p{font-size:13.5px;color:var(--muted);line-height:1.48}
 
 /* ==========================================================================
-   FINOPS & IAC: EVIDENCIA CLARA PARA RECLUTADORES Y COMITÉ
+   COSTOS Y DECISIONES TÉCNICAS (SOLO LOS 4 RECUADROS DE PRECIOS)
    ========================================================================== */
-.evidence-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;margin-bottom:36px}
+.evidence-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
 .evidence-card{
-  background:#FFFFFF;border:1px solid var(--line);border-radius:8px;
-  padding:24px;display:grid;gap:8px;align-content:start;
+  background:#FFFFFF;border:1px solid var(--line);border-radius:12px;
+  padding:28px 24px;display:grid;gap:10px;align-content:start;
 }
 .evidence-card.featured{background:var(--dark-bg);border-color:var(--dark-bg);color:var(--dark-text)}
-.evidence-card small{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.evidence-card small{font-size:11.5px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
 .evidence-card.featured small{color:var(--mint)}
-.evidence-card strong{font-family:var(--font-display);font-size:clamp(22px,2.2vw,29px);font-weight:700;color:var(--ink);line-height:1.1;white-space:nowrap}
+.evidence-card strong{font-size:clamp(22px,2.2vw,29px);font-weight:700;color:var(--ink);line-height:1.15;white-space:nowrap}
 .evidence-card.featured strong{color:#FFFFFF}
-.evidence-card p{font-size:14px;color:var(--muted);line-height:1.5}
-.evidence-card.featured p{color:#C2D9CC}
-
-.split-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:36px;align-items:start}
-.tech-table{width:100%;border-collapse:collapse;font-size:14px}
-.tech-table th{
-  text-align:left;padding:10px 10px 10px 0;border-bottom:2px solid var(--ink);
-  font-family:var(--font-mono);font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);
-}
-.tech-table td{padding:12px 10px 12px 0;border-bottom:1px solid var(--line);vertical-align:top}
-.tech-table tr:last-child td{border-bottom:0}
-.tech-table .r{text-align:right;font-family:var(--font-mono);font-weight:500;white-space:nowrap}
-.table-wrap{width:100%;overflow-x:auto}
+.evidence-card p{font-size:14px;color:var(--muted);line-height:1.55}
+.evidence-card.featured p{color:#C8DDD1}
 
 /* ==========================================================================
-   ROADMAP INTERACTIVO (4 SPRINTS CLICKEABLES COMO FRÍOANDES)
+   ROADMAP INTERACTIVO (4 SPRINTS)
    ========================================================================== */
-.timeline{
-  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-bottom:20px;
-}
+.timeline{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-bottom:20px}
 .phase-btn{
-  text-align:left;padding:20px;border-radius:8px;border:1px solid var(--line);
-  background:#FFFFFF;display:grid;gap:6px;transition:all .18s ease;
+  text-align:left;padding:20px;border-radius:10px;border:1px solid var(--line);
+  background:#FFFFFF;display:grid;gap:5px;transition:all .18s ease;
 }
-.phase-btn span{font-family:var(--font-mono);font-size:12px;color:var(--muted)}
-.phase-btn small{font-family:var(--font-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--green)}
-.phase-btn strong{font-family:var(--font-display);font-size:17px;color:var(--ink)}
+.phase-btn span{font-size:12px;font-weight:600;color:var(--muted)}
+.phase-btn small{font-size:11.5px;font-weight:600;color:var(--green)}
+.phase-btn strong{font-size:16px;font-weight:700;color:var(--ink)}
 .phase-btn:hover{border-color:var(--green)}
 .phase-btn.active{background:var(--dark-bg);border-color:var(--dark-bg)}
 .phase-btn.active span,.phase-btn.active small{color:var(--mint)}
@@ -456,65 +420,17 @@ section{padding-block:clamp(72px,8vw,112px);border-bottom:1px solid var(--line)}
 
 .phase-detail{
   background:#FFFFFF;border:1px solid var(--line);border-left:4px solid var(--green);
-  border-radius:8px;padding:24px 28px;display:grid;gap:8px;
+  border-radius:10px;padding:24px 28px;display:grid;gap:8px;
 }
-.phase-detail span{font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--green)}
-.phase-detail p{font-size:15.5px;color:var(--body);max-width:74ch}
-.phase-detail strong{font-size:14.5px;color:var(--ink)}
+.phase-detail span{font-size:11.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--green)}
+.phase-detail p{font-size:15px;color:var(--body);max-width:74ch}
+.phase-detail strong{font-size:14.5px;font-weight:600;color:var(--ink)}
 
 /* ==========================================================================
-   SYSTEM DESIGN: SWATCHES + SIMULADOR LIMPIO
-   ========================================================================== */
-.swatch-row{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
-.swatch-btn{
-  padding:0;border:1px solid var(--line);border-radius:6px;background:#FFFFFF;
-  text-align:left;overflow:hidden;display:grid;transition:transform .15s ease,border-color .15s ease;
-}
-.swatch-btn:hover{transform:translateY(-2px);border-color:var(--ink)}
-.swatch-fill{height:54px;display:block}
-.swatch-info{padding:10px;display:grid;gap:2px}
-.swatch-info b{font-size:13px;color:var(--ink)}
-.swatch-info code{font-size:11.5px;color:var(--muted)}
-.swatch-info span{font-size:11px;font-weight:700;color:var(--green)}
-
-.workbench{
-  margin-top:36px;padding-top:32px;border-top:1px solid var(--line);
-  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:32px;
-}
-.ap-btn{
-  display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:0 18px;
-  height:52px;border-radius:6px;font-size:14.5px;font-weight:700;border:0;transition:all .15s ease;
-}
-.ap-btn--primary{background:#135E34;color:#FFFFFF}
-.ap-btn--primary:hover{background:#0D4A27}
-.ap-btn--danger{background:#9E1B1B;color:#FFFFFF}
-.ap-btn:disabled{background:#E2E8F0;color:#64748B;cursor:not-allowed}
-.ap-input-wrap{position:relative;display:flex;align-items:center}
-.ap-input{
-  width:100%;height:48px;padding:0 50px 0 14px;border:1.5px solid var(--line-strong);
-  border-radius:6px;font-size:20px;font-weight:700;font-family:var(--font-mono);color:var(--ink);
-}
-.ap-input--error{border-color:#9E1B1B;background:#FFF5F5}
-.ap-input-suffix{position:absolute;right:14px;font-size:14px;font-weight:700;color:var(--muted)}
-.ap-badge{
-  display:inline-flex;align-items:center;gap:6px;height:32px;padding:0 10px;border-radius:4px;
-  font-size:11.5px;font-weight:700;border:1.5px solid transparent;
-}
-.ap-badge--prep{background:#FEF3C7;border-color:#D97706;color:#78350F}
-.ap-badge--travel{background:#DBEAFE;border-color:#2563EB;color:#1E40AF}
-.ap-badge--accepted{background:#DCFCE7;border-color:#16A34A;color:#14532D}
-.ap-badge--rejected{background:#FEE2E2;border-color:#DC2626;color:#7F1D1D}
-.ap-saco-blocked{
-  background:#FEF2F2;border:1px dashed #9E1B1B;border-radius:6px;padding:12px 14px;
-  color:#7F1D1D;font-size:12.5px;display:none;
-}
-.ap-saco-blocked.is-visible{display:block}
-
-/* ==========================================================================
-   BIBLIOTECA DOCUMENTAL MEJORADA (MAESTRO-DETALLE LIMPIA Y ÁGIL)
+   BIBLIOTECA DOCUMENTAL (48 DOCUMENTOS)
    ========================================================================== */
 .doc-explorer{
-  border:1px solid var(--line-strong);border-radius:10px;
+  border:1px solid var(--line-strong);border-radius:12px;
   background:#FFFFFF;overflow:hidden;box-shadow:0 8px 28px rgba(11,22,18,.04);
 }
 .explorer-bar{
@@ -526,11 +442,11 @@ section{padding-block:clamp(72px,8vw,112px);border-bottom:1px solid var(--line)}
 .search-field > svg{position:absolute;left:14px;color:var(--muted);pointer-events:none}
 .search-field input{
   width:100%;height:44px;padding:0 42px 0 42px;border:1px solid var(--line-strong);
-  border-radius:6px;background:#FFFFFF;color:var(--ink);font-size:14.5px;font-family:inherit;
+  border-radius:7px;background:#FFFFFF;color:var(--ink);font-size:14px;font-family:var(--font-main);
 }
 .search-field input:focus{border-color:var(--green);box-shadow:0 0 0 3px rgba(19,94,52,.1);outline:none}
 .clear-btn{
-  position:absolute;right:6px;width:32px;height:32px;border:0;border-radius:4px;
+  position:absolute;right:6px;width:32px;height:32px;border:0;border-radius:5px;
   background:transparent;color:var(--muted);display:none;align-items:center;justify-content:center;
 }
 .clear-btn.is-visible{display:inline-flex}
@@ -538,8 +454,8 @@ section{padding-block:clamp(72px,8vw,112px);border-bottom:1px solid var(--line)}
 
 .cat-tabs{display:flex;flex-wrap:wrap;gap:6px}
 .cat-tab{
-  padding:7px 12px;border-radius:4px;border:1px solid var(--line-strong);
-  background:#FFFFFF;color:var(--body);font-size:12.5px;font-weight:600;transition:all .15s ease;
+  padding:7px 13px;border-radius:6px;border:1px solid var(--line-strong);
+  background:#FFFFFF;color:var(--body);font-size:12.5px;font-weight:500;transition:all .15s ease;
 }
 .cat-tab:hover{border-color:var(--green);color:var(--green)}
 .cat-tab[aria-pressed="true"]{background:var(--dark-bg);color:#FFFFFF;border-color:var(--dark-bg)}
@@ -552,20 +468,20 @@ section{padding-block:clamp(72px,8vw,112px);border-bottom:1px solid var(--line)}
 }
 .doc-row:hover{background:var(--surface)}
 .doc-row.is-selected{background:var(--green-soft);border-left:3px solid var(--green);padding-left:17px}
-.doc-row-top{display:flex;justify-content:space-between;gap:8px;font-family:var(--font-mono);font-size:11px;color:var(--muted)}
-.doc-row-cat{color:var(--green);text-transform:uppercase;font-weight:500}
-.doc-row strong{font-size:14.5px;color:var(--ink);line-height:1.35}
+.doc-row-top{display:flex;justify-content:space-between;gap:8px;font-size:11px;font-weight:500;color:var(--muted)}
+.doc-row-cat{color:var(--green);text-transform:uppercase;font-weight:600}
+.doc-row strong{font-size:14px;font-weight:600;color:var(--ink);line-height:1.38}
 .doc-row mark,.doc-reader mark{background:#DCFCE7;color:var(--green-deep);padding:0 2px;border-radius:2px}
 .doc-empty{padding:40px 24px;text-align:center;display:grid;gap:12px;place-items:center;color:var(--muted)}
 
 .doc-reader{padding:30px 32px;display:flex;flex-direction:column;gap:18px;background:#FFFFFF}
-.reader-kicker{font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--green)}
+.reader-kicker{font-size:11.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--green)}
 .reader-meta{
   display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;
   padding-block:12px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);
 }
-.reader-meta span{display:block;font-family:var(--font-mono);font-size:10.5px;text-transform:uppercase;color:var(--muted)}
-.reader-meta strong{display:block;font-size:13px;color:var(--ink);margin-top:3px;word-break:break-word}
+.reader-meta span{display:block;font-size:11px;font-weight:500;text-transform:uppercase;color:var(--muted)}
+.reader-meta strong{display:block;font-size:13px;font-weight:600;color:var(--ink);margin-top:3px;word-break:break-word}
 .reader-points{margin:0;padding-left:18px;display:grid;gap:8px;font-size:14.5px;color:var(--body)}
 .reader-finops{
   padding:14px 16px;border-left:3px solid var(--green);background:var(--surface);
@@ -574,7 +490,7 @@ section{padding-block:clamp(72px,8vw,112px);border-bottom:1px solid var(--line)}
 .reader-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:auto;padding-top:14px;border-top:1px solid var(--line)}
 
 /* ==========================================================================
-   CIERRE OSCURO Y FOOTER LIMPIO (COMO FRÍOANDES)
+   CIERRE OSCURO Y FOOTER LIMPIO
    ========================================================================== */
 .closing{
   background:radial-gradient(ellipse 60% 80% at 80% 50%, rgba(16,185,129,.14), transparent 70%), var(--dark-bg);
@@ -586,38 +502,36 @@ section{padding-block:clamp(72px,8vw,112px);border-bottom:1px solid var(--line)}
 }
 .closing h2{color:#FFFFFF}
 .closing h2 span{color:var(--mint)}
-.closing p{margin-top:16px;color:#C2D9CC;max-width:48ch;font-size:16px}
+.closing p{margin-top:16px;color:#C2D9CC;max-width:48ch;font-size:15.5px}
 .repo-links{display:grid;gap:10px}
 .repo-link{
   display:flex;justify-content:space-between;align-items:center;gap:16px;
-  padding:16px 20px;border:1px solid var(--dark-line);border-radius:6px;
+  padding:16px 20px;border:1px solid var(--dark-line);border-radius:8px;
   background:rgba(255,255,255,.03);color:#FFFFFF;text-decoration:none;
   transition:border-color .16s ease,background-color .16s ease;
 }
 .repo-link:hover{border-color:var(--mint);background:rgba(110,231,183,.07)}
-.repo-link b{display:block;font-family:var(--font-display);font-size:16px}
+.repo-link b{display:block;font-size:16px;font-weight:600}
 .repo-link span{font-size:13px;color:var(--dark-muted)}
-.repo-link i{font-style:normal;font-family:var(--font-mono);color:var(--mint)}
+.repo-link i{font-style:normal;font-weight:600;color:var(--mint)}
 
-footer{
-  background:#04120B;color:var(--dark-muted);font-size:13px;padding-block:28px;
-}
+footer{background:#04120B;color:var(--dark-muted);font-size:13px;padding-block:26px}
 .footer-inner{
   max-width:1220px;margin:0 auto;padding-inline:clamp(20px,4vw,40px);
-  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px 24px;
+  display:flex;justify-content:center;align-items:center;text-align:center;
 }
 
 /* ==========================================================================
-   MODAL SUPER-ZOOM (CONSERVADO Y REFINADO)
+   MODAL SUPER-ZOOM CON MANO PARA ARRASTRAR (DRAG-TO-PAN) + RUEDA DE ZOOM
    ========================================================================== */
 .modal-backdrop{
-  position:fixed;inset:0;z-index:80;background:rgba(6,26,17,.86);
+  position:fixed;inset:0;z-index:80;background:rgba(6,26,17,.88);
   backdrop-filter:blur(6px);display:none;align-items:center;justify-content:center;padding:16px;
 }
 .modal-backdrop.is-open{display:flex}
 .modal-dialog{
-  background:#FFFFFF;border-radius:8px;width:95vw;max-width:1680px;height:92vh;
-  display:grid;grid-template-rows:auto 1fr;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.35);
+  background:#FFFFFF;border-radius:10px;width:95vw;max-width:1680px;height:92vh;
+  display:grid;grid-template-rows:auto 1fr auto;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.35);
 }
 .modal-head{
   display:flex;align-items:center;justify-content:space-between;gap:12px;
@@ -625,41 +539,50 @@ footer{
 }
 .zoom-controls{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
 .zoom-ctrl-btn{
-  height:34px;padding:0 11px;border-radius:4px;border:1px solid var(--line-strong);
-  background:var(--surface);color:var(--ink);font-family:var(--font-mono);font-size:12px;font-weight:500;
+  height:36px;padding:0 12px;border-radius:6px;border:1px solid var(--line-strong);
+  background:var(--surface);color:var(--ink);font-size:12.5px;font-weight:600;
 }
 .zoom-ctrl-btn:hover{border-color:var(--green);color:var(--green)}
 .modal-close{
-  width:34px;height:34px;border-radius:4px;border:1px solid var(--line-strong);
+  width:36px;height:36px;border-radius:6px;border:1px solid var(--line-strong);
   background:#FFFFFF;color:var(--ink);display:grid;place-items:center;
 }
 .modal-close:hover{border-color:var(--cherry);color:var(--cherry)}
-.zoom-canvas{overflow:auto;background:#F1F5F3;display:grid;place-items:center;padding:20px;height:100%}
-.zoom-canvas img{max-width:none;width:100%;height:auto;background:#FFFFFF;box-shadow:0 6px 24px rgba(0,0,0,.1);transition:width .16s ease}
+.zoom-canvas{
+  overflow:auto;background:#EFF3F1;display:flex;align-items:flex-start;justify-content:center;
+  padding:24px;height:100%;cursor:grab;user-select:none;-webkit-user-select:none;
+}
+.zoom-canvas.is-dragging{cursor:grabbing}
+.zoom-canvas img{
+  max-width:none;width:100%;height:auto;background:#FFFFFF;border-radius:4px;
+  box-shadow:0 8px 28px rgba(0,0,0,.12);pointer-events:none;-webkit-user-drag:none;
+  transition:width .12s ease;
+}
+.modal-foot{
+  padding:10px 20px;border-top:1px solid var(--line);background:var(--surface);
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;
+  font-size:12.5px;color:var(--muted);
+}
 
 /* ==========================================================================
    RESPONSIVE
    ========================================================================== */
 @media (max-width:1060px){
   .hero-main,.featured-diagram,.closing-grid{grid-template-columns:1fr}
-  .hero-visual{min-height:240px}
   .gallery-grid,.evidence-grid,.metrics-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .gallery-grid-3{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .journey-strip{grid-template-columns:repeat(2,minmax(0,1fr))}
   .hero-stats{grid-template-columns:repeat(2,minmax(0,1fr))}
   .hero-stats article:nth-child(3){border-left:0;padding-left:0}
 }
 @media (max-width:860px){
   .site-nav{display:none}
   .menu-toggle{display:inline-flex}
-  .mission-grid,.split-2,.workbench,.explorer-body,.timeline{grid-template-columns:1fr}
+  .mission-grid,.explorer-body,.timeline,.clock-panel{grid-template-columns:1fr}
+  .journey-line{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .journey-line::before{display:none}
   .doc-list{border-right:0;border-bottom:1px solid var(--line);max-height:260px}
-  .swatch-row{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .shift-bar{grid-template-columns:1fr}
-  .shift-freeze{border-inline:0;border-block:1px solid #F5C2C2}
 }
 @media (max-width:600px){
-  .hero-stats,.gallery-grid,.gallery-grid-3,.gallery-grid-2,.evidence-grid,.metrics-grid,.journey-strip{grid-template-columns:1fr}
+  .hero-stats,.gallery-grid,.gallery-grid-2,.evidence-grid,.metrics-grid,.journey-line{grid-template-columns:1fr}
   .hero-stats article{border-left:0;padding:18px 0;border-top:1px solid var(--dark-line)}
   .hero-stats article:first-child{border-top:0}
   .reader-meta{grid-template-columns:1fr}
@@ -681,8 +604,8 @@ footer{
       <a href="#contexto">Contexto</a>
       <a href="#operacion">Operación</a>
       <a href="#arquitectura">Arquitectura</a>
-      <a href="#costos">Costos e IaC</a>
-      <a href="#diseno">Diseño</a>
+      <a href="#costos">Costos</a>
+      <a href="#roadmap">Roadmap</a>
       <a class="nav-cta" href="#biblioteca">Biblioteca (48)</a>
     </nav>
 
@@ -694,48 +617,126 @@ footer{
     <a href="#contexto">Contexto</a>
     <a href="#operacion">Operación</a>
     <a href="#arquitectura">Arquitectura y Diagramas</a>
-    <a href="#costos">Costos y Terraform</a>
-    <a href="#diseno">Sistema de Diseño</a>
+    <a href="#costos">Decisiones y Costos</a>
     <a href="#roadmap">Roadmap</a>
     <a href="#biblioteca">Explorar Biblioteca (48 docs)</a>
   </div>
 </header>
 
 <main id="inicio">
-<!-- HERO EDITORIAL -->
+<!-- HERO BANNER CON ILUSTRACIÓN ANIMADA DE SACO DE CAFÉ 60 KG -->
 <div class="hero">
   <div class="wrap">
     <div class="hero-main">
       <div>
-        <span class="hero-eyebrow">Caso de Ingeniería Cloud &amp; DevOps · FNC 2026</span>
+        <span class="hero-eyebrow">Plataforma de Trazabilidad Cafetera · FNC 2026</span>
         <h1>Café con trazabilidad.<em>Plataforma sin señal.</em></h1>
         <p class="hero-lede">
-          Diseñamos la infraestructura en AWS que conecta 200 fincas cafeteras en Cauca, Huila y Tolima con 3 centros de acopio y el puerto de Buenaventura — funcionando sin cobertura celular y reduciendo el gasto anual en un 74,5 %.
+          Modernizamos el piloto cafetero para seguir cada saco de 60 kg desde la finca hasta el puerto de Buenaventura. La arquitectura protege el cultivo con alertas tempranas, controla vuelos de drones con supervisión humana y sigue operando sin cobertura celular.
         </p>
         <div class="hero-actions">
           <a class="btn-primary" href="#arquitectura">Explorar diagramas <span aria-hidden="true">-&gt;</span></a>
-          <a class="text-link" href="#biblioteca">Revisar los 48 documentos</a>
+          <a class="text-link" href="#biblioteca">Ver documentación completa</a>
         </div>
       </div>
 
+      <!-- Ilustración SVG animada original: Saco de café de 60 kg + señal rural + ruta trazada -->
       <div class="hero-visual" aria-hidden="true">
-        <div class="layer-stack">
-          <i></i><i></i><i></i><i></i><i></i>
-        </div>
-        <div class="stack-caption">Campo · Conectividad · AWS · Seguridad · Comprador</div>
+        <svg class="hero-art" viewBox="0 0 440 390" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <radialGradient id="heroGlow" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#10B981" stop-opacity="0.32"/>
+              <stop offset="100%" stop-color="#10B981" stop-opacity="0"/>
+            </radialGradient>
+            <linearGradient id="sackGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#226B45"/>
+              <stop offset="55%" stop-color="#14492D"/>
+              <stop offset="100%" stop-color="#0B2E1C"/>
+            </linearGradient>
+            <linearGradient id="sackRim" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#6EE7B7" stop-opacity="0.8"/>
+              <stop offset="100%" stop-color="#10B981" stop-opacity="0.3"/>
+            </linearGradient>
+          </defs>
+
+          <!-- Halo y ondas de telemetría -->
+          <circle cx="220" cy="195" r="165" fill="url(#heroGlow)"/>
+          <circle class="pulse-ring" cx="220" cy="195" r="126" stroke="#6EE7B7" stroke-opacity="0.24" stroke-width="1.4"/>
+          <circle class="pulse-ring r2" cx="220" cy="195" r="158" stroke="#6EE7B7" stroke-opacity="0.16" stroke-width="1.2" stroke-dasharray="5 7"/>
+
+          <!-- Curva orbital animada (ruta finca -> puerto) -->
+          <path class="orbit-dash" d="M 52 256 C 48 124, 146 46, 266 56 C 354 64, 404 148, 386 244" stroke="#6EE7B7" stroke-opacity="0.48" stroke-width="1.8" stroke-linecap="round"/>
+
+          <!-- Sombra suave inferior -->
+          <ellipse cx="220" cy="316" rx="86" ry="11" fill="#030D08" fill-opacity="0.52"/>
+
+          <!-- Saco de café 60 kg animado -->
+          <g class="sack-float">
+            <!-- Pliegue superior atado del saco -->
+            <path d="M 166 84 C 174 66, 198 60, 220 64 C 242 60, 266 66, 274 84 L 254 106 L 186 106 Z" fill="#1C5B3A" stroke="#6EE7B7" stroke-opacity="0.6" stroke-width="1.6" stroke-linejoin="round"/>
+            <!-- Cuerda / amarre del saco -->
+            <rect x="180" y="100" width="80" height="12" rx="6" fill="#0B2E1C" stroke="#6EE7B7" stroke-width="1.8"/>
+            <path d="M 196 106 H 244" stroke="#6EE7B7" stroke-width="1.5" stroke-dasharray="4 4"/>
+            <!-- Cuerpo orgánico del saco de fique -->
+            <path d="M 184 112 C 138 140, 122 204, 134 264 C 142 296, 174 310, 220 310 C 266 310, 298 296, 306 264 C 318 204, 302 140, 256 112 Z" fill="url(#sackGrad)" stroke="url(#sackRim)" stroke-width="2"/>
+            <!-- Costuras sutiles de tejido de fique -->
+            <path d="M 152 162 C 194 170, 246 170, 288 162" stroke="#6EE7B7" stroke-opacity="0.2" stroke-width="1.2" stroke-dasharray="6 5"/>
+            <path d="M 146 264 C 192 272, 248 272, 294 264" stroke="#6EE7B7" stroke-opacity="0.2" stroke-width="1.2" stroke-dasharray="6 5"/>
+
+            <!-- Emblema central del grano de café -->
+            <circle cx="220" cy="210" r="44" fill="#061A11" fill-opacity="0.68" stroke="#6EE7B7" stroke-opacity="0.5" stroke-width="1.5"/>
+            <g transform="translate(192,182) scale(0.56)">
+              <path d="M 47.5,14 C 29,14 17,29 17,50 C 17,71 29,86 47.5,86 C 42,72 43,60 46.5,50 C 50,40 51,28 47.5,14 Z" fill="#6EE7B7"/>
+              <path d="M 52.5,14 C 56,28 55,40 51.5,47 C 64,45 76,40 81,30 C 78,19 68,14 52.5,14 Z" fill="#F87171"/>
+              <path d="M 51.5,53 C 48,60 47,72 52.5,86 C 68,86 83,73 83,52 C 75,51 63,52 51.5,53 Z" fill="#38BDF8"/>
+            </g>
+            <!-- Sello de peso y origen limpio debajo del saco -->
+            <rect x="114" y="330" width="212" height="28" rx="14" fill="#0A281A" fill-opacity="0.94" stroke="#6EE7B7" stroke-opacity="0.45" stroke-width="1.2"/>
+            <text x="220" y="348" text-anchor="middle" font-family="Poppins, sans-serif" font-size="11.5" font-weight="600" fill="#D1FAE5" letter-spacing="1.1">60 KG · ORIGEN VERIFICADO</text>
+          </g>
+
+          <!-- Tarjeta flotante izquierda: Sensor en finca -->
+          <g class="tag-float">
+            <rect x="12" y="130" width="132" height="54" rx="10" fill="#0A281A" fill-opacity="0.94" stroke="#6EE7B7" stroke-opacity="0.45" stroke-width="1.2"/>
+            <circle cx="30" cy="150" r="4.5" fill="#34D399"/>
+            <text x="42" y="154" font-family="Poppins, sans-serif" font-size="11" font-weight="600" fill="#FFFFFF">Finca offline</text>
+            <text x="26" y="172" font-family="Poppins, sans-serif" font-size="10.5" fill="#9AB8A7">Buffer 24 h activo</text>
+          </g>
+
+          <!-- Tarjeta flotante derecha: Código trazable -->
+          <g class="tag-float t2">
+            <rect x="294" y="216" width="136" height="54" rx="10" fill="#0A281A" fill-opacity="0.94" stroke="#6EE7B7" stroke-opacity="0.45" stroke-width="1.2"/>
+            <circle cx="312" cy="236" r="4.5" fill="#38BDF8"/>
+            <text x="324" y="240" font-family="Poppins, sans-serif" font-size="11" font-weight="600" fill="#FFFFFF">Saco trazado</text>
+            <text x="308" y="258" font-family="Poppins, sans-serif" font-size="10.5" fill="#9AB8A7">Cauca -&gt; Puerto</text>
+          </g>
+        </svg>
       </div>
     </div>
 
+    <!-- 4 Cifras clave en lenguaje natural y directo -->
     <div class="hero-stats num">
-      <article><strong>200</strong><span>Fincas monitoreadas<br>Cauca, Huila y Tolima</span></article>
-      <article><strong>&lt; 5 min</strong><span>Alerta de cultivo<br>245 s verificados</span></article>
-      <article><strong>-74,5 %</strong><span>Ahorro anual FinOps<br>USD 98.790 / año</span></article>
-      <article><strong>99,9 %</strong><span>Disponibilidad del saco<br>Respaldo en Ohio</span></article>
+      <article>
+        <strong>200 fincas</strong>
+        <span>Monitoreadas en Cauca, Huila y Tolima</span>
+      </article>
+      <article>
+        <strong>&lt; 5 min</strong>
+        <span>Tiempo de alerta al caficultor ante cambios en el cultivo</span>
+      </article>
+      <article>
+        <strong>74,5 % menos</strong>
+        <span>En costo anual frente al esquema inicial</span>
+      </article>
+      <article>
+        <strong>99,9 %</strong>
+        <span>Disponibilidad para consultar el origen de cada saco</span>
+      </article>
     </div>
   </div>
 </div>
 
-<!-- CONTEXTO Y MISIÓN -->
+<!-- CONTEXTO + LÍNEA DE TIEMPO VISUAL CON ÍCONOS -->
 <section id="contexto">
   <div class="wrap reveal">
     <div class="mission-grid">
@@ -744,57 +745,83 @@ footer{
       </div>
       <div class="mission-body">
         <p>
-          En 2020 se planteó un piloto de trazabilidad para la Federación Nacional de Cafeteros, pero nunca llegó a producción: dependía de redes 2G/3G continuas, equipos costosos y no contemplaba zonas sin cobertura.
+          El piloto cafetero de 2020 nunca llegó a operar porque dependía de cobertura celular continua y equipos costosos. En 2026 rediseñamos toda la plataforma sobre AWS para que cada finca, dron, camión y centro de acopio trabaje con normalidad incluso cuando se cae Internet.
         </p>
         <p>
-          En 2026 rediseñamos la plataforma desde cero sobre <strong>AWS (us-east-1)</strong> con contingencia en <strong>Ohio (us-east-2)</strong> y <strong>Azure</strong> preparada como segunda nube. Cada sensor, camión, dron y centro de acopio guarda sus datos localmente cuando se corta Internet y los sincroniza automáticamente al recuperar conexión.
+          Los datos se guardan de forma local y cifrada mientras no hay señal, y se sincronizan automáticamente al recuperar conexión sin perder registros ni duplicar eventos.
         </p>
         <div class="constraint-box">
-          <span>Regla no negociable</span>
-          <strong>Cero cambios a producción entre 05:00 y 18:00 en temporada de cosecha, y ninguna fumigación sin firma humana (MFA).</strong>
+          <span>Principio operativo</span>
+          <strong>Sin cambios técnicos en horas pico de cosecha y ninguna fumigación con dron sin autorización humana.</strong>
         </div>
       </div>
     </div>
 
-    <div class="journey-strip">
-      <article class="journey-step">
-        <span class="journey-num">01 · FINCA (200)</span>
-        <h3>Sensores con memoria de 24 h</h3>
-        <p>Miden cultivo cada 4 h y secado cada hora. Si no hay señal, guardan en memoria flash hasta recibir confirmación de la nube.</p>
-      </article>
-      <article class="journey-step">
-        <span class="journey-num">02 · DRONES (RAC 100)</span>
-        <h3>5 servicios con control humano</h3>
-        <p>Un prestador certificado opera por acopio. La IA ayuda a diagnosticar plagas, pero solo un agrónomo con MFA autoriza fumigar.</p>
-      </article>
-      <article class="journey-step">
-        <span class="journey-num">03 · RUTA (60)</span>
-        <h3>GPS offline cada 5 minutos</h3>
-        <p>La app del transportador guarda su recorrido en SQLite cifrado por vías terciarias y sincroniza lotes al recuperar 4G.</p>
-      </article>
-      <article class="journey-step">
-        <span class="journey-num">04 · ACOPIO (3)</span>
-        <h3>Red propia en 7 VLANs</h3>
-        <p>Cauca, Huila y Tolima usan el mismo patrón de red con VPN doble a AWS, impresión local de códigos y visitantes aislados.</p>
-      </article>
-      <article class="journey-step">
-        <span class="journey-num">05 · COMPRADOR</span>
-        <h3>Trazabilidad sin exponer datos</h3>
-        <p>En Buenaventura solo se registra la entrega desde el móvil. El comprador consulta el saco por código HMAC sin ver cédulas ni rutas (Ley 1581).</p>
-      </article>
+    <!-- Línea de tiempo gráfica del recorrido del saco -->
+    <div class="journey-board">
+      <div class="journey-board-head">
+        <h3>Recorrido del saco de 60 kg, de la finca al comprador</h3>
+        <span>Operación continua con sincronización automática</span>
+      </div>
+      <div class="journey-line">
+        <article class="j-node">
+          <div class="j-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21V11"/><path d="M12 11C12 6.5 16 4 20 4C20 8.5 17 11.5 12 11Z"/><path d="M12 14C12 10.5 8.5 8.5 4.5 8.5C4.5 12 7 14.5 12 14Z"/></svg>
+          </div>
+          <span class="j-step">Paso 1</span>
+          <h4>Finca</h4>
+          <p>200 fincas con sensores solares y memoria local de 24 h.</p>
+        </article>
+
+        <article class="j-node">
+          <div class="j-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2"><circle cx="6.5" cy="7.5" r="2.5"/><circle cx="17.5" cy="7.5" r="2.5"/><circle cx="6.5" cy="16.5" r="2.5"/><circle cx="17.5" cy="16.5" r="2.5"/><path d="M8.5 9.5L15.5 14.5M15.5 9.5L8.5 14.5"/><rect x="10" y="10" width="4" height="4" rx="1" fill="currentColor"/></svg>
+          </div>
+          <span class="j-step">Paso 2</span>
+          <h4>Drones</h4>
+          <p>Diagnóstico aéreo de plagas y fumigación solo con firma MFA.</p>
+        </article>
+
+        <article class="j-node is-accent">
+          <div class="j-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="2" y="6" width="13" height="10" rx="1.5"/><path d="M15 9H19.5L22 12.5V16H15Z"/><circle cx="6.5" cy="18" r="2"/><circle cx="18" cy="18" r="2"/></svg>
+          </div>
+          <span class="j-step">Paso 3</span>
+          <h4>Transporte</h4>
+          <p>60 vehículos registrando posición GPS cada 5 min offline.</p>
+        </article>
+
+        <article class="j-node is-accent">
+          <div class="j-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 21H21M5 21V9L12 4L19 9V21"/><rect x="9" y="14" width="6" height="7"/></svg>
+          </div>
+          <span class="j-step">Paso 4</span>
+          <h4>Acopio</h4>
+          <p>3 centros (Cauca, Huila y Tolima) con red propia y VPN.</p>
+        </article>
+
+        <article class="j-node">
+          <div class="j-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+          </div>
+          <span class="j-step">Paso 5</span>
+          <h4>Comprador</h4>
+          <p>Entrega en Buenaventura y consulta pública sin datos privados.</p>
+        </article>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- OPERACIÓN INTERACTIVA: NORMAL VS COSECHA -->
+<!-- OPERACIÓN INTERACTIVA + RELOJ CIRCULAR 24H -->
 <section id="operacion" class="bg-soft">
   <div class="wrap reveal">
     <div class="sec-head">
       <div>
-        <h2>Una sola plataforma. <span>Dos ritmos de operación.</span></h2>
+        <h2>Cómo responde el sistema <span>en temporada normal y en cosecha.</span></h2>
       </div>
       <div class="mode-switch" role="group" aria-label="Escenario operativo">
-        <button type="button" class="active" data-op-mode="normal" aria-pressed="true">Mes normal</button>
+        <button type="button" class="active" data-op-mode="normal" aria-pressed="true">Temporada normal</button>
         <button type="button" data-op-mode="cosecha" aria-pressed="false">Pico de cosecha</button>
       </div>
     </div>
@@ -803,70 +830,70 @@ footer{
       <article class="metric-card">
         <span class="metric-label">Lecturas diarias</span>
         <strong id="op-readings">3.600</strong>
-        <p id="op-readings-desc">200 fincas en monitoreo de cultivo y viajes regulares.</p>
+        <p id="op-readings-desc">Monitoreo constante en las 200 fincas y rutas habituales.</p>
         <div class="metric-meter"><i id="op-readings-bar" style="width:34%"></i></div>
       </article>
       <article class="metric-card">
-        <span class="metric-label">Costo AWS mensual</span>
+        <span class="metric-label">Costo mensual en nube</span>
         <strong id="op-cost">USD 811</strong>
-        <p id="op-cost-desc">Las funciones serverless cuestan menos de USD 1 en reposo.</p>
-        <div class="metric-note" id="op-cost-note">Presupuesto validado (#70)</div>
+        <p id="op-cost-desc">Servicios bajo demanda que no cobran por capacidad ociosa.</p>
+        <div class="metric-note" id="op-cost-note">Operación optimizada</div>
       </article>
       <article class="metric-card">
-        <span class="metric-label">Vuelos de dron / mes</span>
+        <span class="metric-label">Vuelos de dron al mes</span>
         <strong id="op-flights">17</strong>
-        <p id="op-flights-desc">Campaña trimestral contratada bajo RAC 100 sin nómina ociosa.</p>
+        <p id="op-flights-desc">Campaña trimestral contratada sin mantener cuadrillas fijas.</p>
         <div class="metric-meter"><i id="op-flights-bar" style="width:15%"></i></div>
       </article>
       <article class="metric-card">
         <span class="metric-label">Consultas de sacos</span>
         <strong id="op-queries">10 / min</strong>
-        <p id="op-queries-desc">Portal público protegido con CloudFront, WAF y réplica en Ohio.</p>
-        <div class="metric-note" id="op-queries-note">SLO 99,9 % garantizado</div>
+        <p id="op-queries-desc">Acceso web estable para compradores internacionales.</p>
+        <div class="metric-note" id="op-queries-note">Disponibilidad 99,9 %</div>
       </article>
     </div>
 
-    <div class="freeze-panel">
-      <div class="freeze-top">
-        <div class="freeze-badge">
-          <span class="live-dot" aria-hidden="true"></span>
-          <div>
-            <small>Protección en temporada de cosecha (Abr–Jun y Sep–Nov)</small>
-            <strong>Compuerta automática en GitHub Actions (check_harvest_window.py)</strong>
-          </div>
-        </div>
-        <span class="mono" style="font-size:12px;color:var(--muted)">Hora local de Colombia (UTC-5)</span>
+    <!-- Reloj Circular 24h amigable para ventana de cosecha -->
+    <div class="clock-panel">
+      <div class="clock-dial-wrap">
+        <svg viewBox="0 0 264 264" width="224" height="224" role="img" aria-label="Reloj de 24 horas: de 05:00 a 18:00 operación protegida sin cambios técnicos; de 18:00 a 05:00 ventana segura para actualizaciones">
+          <!-- Anillo base verde (ventana segura 18:00 a 05:00) -->
+          <circle cx="132" cy="132" r="82" fill="#FAFDFB" stroke="#10B981" stroke-width="17"/>
+          <!-- Arco rojo (05:00 a 18:00 = 13 horas de 24 -> 54.17% de circunferencia 515.22 = 279.1, rotado desde 05:00 -> -90 + 75 = -15 deg) -->
+          <circle cx="132" cy="132" r="82" fill="none" stroke="#DC2626" stroke-width="17"
+                  stroke-dasharray="279.1 515.22" transform="rotate(-15 132 132)"/>
+          <!-- Marcas sutiles interiores -->
+          <line x1="132" y1="60" x2="132" y2="67" stroke="#94A3B8" stroke-width="2" stroke-linecap="round"/>
+          <line x1="204" y1="132" x2="197" y2="132" stroke="#94A3B8" stroke-width="2" stroke-linecap="round"/>
+          <line x1="132" y1="204" x2="132" y2="197" stroke="#94A3B8" stroke-width="2" stroke-linecap="round"/>
+          <line x1="60" y1="132" x2="67" y2="132" stroke="#94A3B8" stroke-width="2" stroke-linecap="round"/>
+          <!-- Marcas de referencia 00, 06, 12, 18 con aire limpio -->
+          <text x="132" y="24" text-anchor="middle" font-family="Poppins, sans-serif" font-size="11.5" font-weight="600" fill="#475569">00 h</text>
+          <text x="242" y="136" text-anchor="middle" font-family="Poppins, sans-serif" font-size="11.5" font-weight="600" fill="#475569">06 h</text>
+          <text x="132" y="250" text-anchor="middle" font-family="Poppins, sans-serif" font-size="11.5" font-weight="600" fill="#475569">12 h</text>
+          <text x="22" y="136" text-anchor="middle" font-family="Poppins, sans-serif" font-size="11.5" font-weight="600" fill="#475569">18 h</text>
+          <!-- Centro del reloj -->
+          <text x="132" y="114" text-anchor="middle" font-family="Poppins, sans-serif" font-size="10.5" font-weight="600" fill="#9E1B1B" letter-spacing="0.6">HORA COLOMBIA</text>
+          <text x="132" y="140" text-anchor="middle" font-family="Poppins, sans-serif" font-size="19.5" font-weight="700" fill="#0B1612">05:00 – 18:00</text>
+          <text x="132" y="159" text-anchor="middle" font-family="Poppins, sans-serif" font-size="11.5" font-weight="500" fill="#64748B">Operación protegida</text>
+        </svg>
       </div>
-      <div class="shift-bar" aria-label="Horario de ventana de cambios en cosecha">
-        <div class="shift-safe">00:00 – 05:00 · Ventana segura</div>
-        <div class="shift-freeze">05:00 – 18:00 · BLOQUEO DE CAMBIOS EN PRODUCCIÓN (SALVO INCIDENTE)</div>
-        <div class="shift-safe">18:00 – 24:00 · Ventana segura</div>
-      </div>
-      <p style="font-size:14px;color:var(--muted)">
-        Durante el horario diurno de recolección y báscula en acopios el pipeline detiene cualquier promoción a producción, salvo incidentes críticos auditados con la etiqueta oficial <code>incident</code>.
-      </p>
-    </div>
 
-    <div class="mix-strip">
-      <div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px">
-        <strong style="font-size:15px;color:var(--ink)">Cómo conectamos las 200 fincas sin usar redes 2G ni 3G</strong>
-        <span class="mono" style="font-size:12px;color:var(--green)">Ahorro de USD 84.552 / año</span>
-      </div>
-      <div class="mix-bar" role="img" aria-label="140 fincas por LTE-M, 48 por LoRaWAN compartido y 12 por satélite Iridium">
-        <div style="width:70%;background:#135E34"></div>
-        <div style="width:24%;background:#0F4C81"></div>
-        <div style="width:6%;background:#B45309"></div>
-      </div>
-      <div class="mix-legend">
-        <span><i style="background:#135E34"></i><strong>140 fincas (70 %)</strong> · Celular LTE-M / NB-IoT (USD 0,30/mes)</span>
-        <span><i style="background:#0F4C81"></i><strong>48 fincas (24 %)</strong> · LoRaWAN en 10 gateways solares (USD 0,20/mes)</span>
-        <span><i style="background:#B45309"></i><strong>12 fincas (6 %)</strong> · Satélite Iridium SBD donde no hay línea de vista</span>
+      <div class="clock-copy">
+        <h3>Ventana protegida durante la temporada de cosecha</h3>
+        <p>
+          En los meses de mayor recolección (abril–junio y septiembre–noviembre), el sistema impide automáticamente desplegar cambios a producción entre las 5:00 a. m. y las 6:00 p. m. Así evitamos interrupciones mientras los acopios reciben y pesan café, reservando las actualizaciones para el horario nocturno salvo emergencias aprobadas.
+        </p>
+        <div class="clock-legend">
+          <span><i style="background:#DC2626"></i>05:00 a 18:00 · Horario protegido en cosecha</span>
+          <span><i style="background:#10B981"></i>18:00 a 05:00 · Ventana segura para cambios</span>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ARQUITECTURA Y DIAGRAMAS (SPOTLIGHT + GALERÍA SUPER-ZOOM) -->
+<!-- ARQUITECTURA Y DIAGRAMAS (SPOTLIGHT + GALERÍA CON ZOOM ARRASTRABLE) -->
 <section id="arquitectura">
   <div class="wrap reveal">
     <div class="sec-head">
@@ -874,26 +901,25 @@ footer{
         <h2>Explora <span>la arquitectura.</span></h2>
       </div>
       <p class="sec-lead">
-        Todos los diagramas usan iconografía oficial de AWS y Azure, fuentes editables en Draw.io y exportación vectorial SVG validada automáticamente. Haz clic en cualquiera para abrir el visor de alta resolución.
+        Elaboramos diagramas técnicos para detallar cómo resolvemos cada reto de la operación cafetera: la captura de datos en fincas sin cobertura, el control humano sobre los drones, la red de los centros de acopio y la privacidad del comprador.
       </p>
     </div>
 
-    <!-- Spotlight del diagrama consolidado -->
     <article class="featured-diagram">
       <button type="button" class="featured-visual" data-zoom-img="img/vista-general.jpg" data-zoom-title="Vista General Consolidada de AromaPacífico (Cajas E6-01 a E6-08)" data-zoom-doc="vista-general">
-        <img src="img/vista-general.jpg" alt="Arquitectura consolidada de AromaPacífico en AWS us-east-1, contingencia en us-east-2 y Azure preparada">
-        <span class="featured-expand">Abrir en Super-Zoom -&gt;</span>
+        <img src="img/vista-general.jpg" alt="Arquitectura consolidada de AromaPacífico">
+        <span class="featured-expand">Abrir visor interactivo</span>
       </button>
       <div class="featured-copy">
-        <span class="mono" style="font-size:11.5px;color:var(--green);letter-spacing:.08em;text-transform:uppercase">Mapa maestro · Flujos 1 al 8</span>
+        <span style="font-size:12px;font-weight:600;color:var(--green);text-transform:uppercase;letter-spacing:.05em">Mapa maestro · Flujos 1 al 8</span>
         <h3>Arquitectura completa en una sola vista</h3>
         <p>
-          Conecta el campo offline-first, las 5 puertas de entrada a la nube, la VPC de producción en Virginia, el respaldo automático en Ohio y la interconexión lista para Microsoft Azure. Las insignias negras <strong>E6-01 a E6-08</strong> marcan exactamente lo que se codificó en Terraform.
+          Reúne el recorrido completo desde el campo hasta la consulta pública del saco, mostrando el aislamiento de redes, la recuperación ante fallos en otra región y los módulos implementados en infraestructura como código.
         </p>
         <dl class="meta-dl">
-          <div><dt>Nube principal</dt><dd>AWS us-east-1 + DR us-east-2</dd></div>
-          <div><dt>Segunda nube</dt><dd>Azure 10.90.0.0/16 (USD 0)</dd></div>
-          <div><dt>Diagramas validados</dt><dd>37 fuentes Draw.io + SVG</dd></div>
+          <div><dt>Nube principal</dt><dd>AWS us-east-1 + respaldo us-east-2</dd></div>
+          <div><dt>Segunda nube</dt><dd>Azure preparada (USD 0/mes)</dd></div>
+          <div><dt>Cobertura visual</dt><dd>37 vistas técnicas y de diseño</dd></div>
         </dl>
         <button type="button" class="btn-primary" style="justify-self:start" data-zoom-img="img/vista-general.jpg" data-zoom-title="Vista General Consolidada de AromaPacífico (Cajas E6-01 a E6-08)" data-zoom-doc="vista-general">
           Inspeccionar diagrama completo
@@ -901,83 +927,81 @@ footer{
       </div>
     </article>
 
-    <!-- Galería de vistas detalladas -->
     <div class="sub-head">
       <h3>Vistas por dominio</h3>
-      <span>Haz clic en cualquier lámina para hacer zoom</span>
+      <span>Haz clic en cualquier lámina para acercar y moverte con el cursor</span>
     </div>
     <div class="gallery-grid">
       <button type="button" class="gallery-item" data-zoom-img="img/gobierno-landing-zone.jpg" data-zoom-title="Gobierno Cloud y Landing Zone Multi-Cuenta (#1 y #70)" data-zoom-doc="gobierno-landing-zone">
         <div class="gallery-thumb"><img src="img/gobierno-landing-zone.jpg" alt="Landing zone seis cuentas" loading="lazy"><span class="gallery-zoom-hint">Ampliar</span></div>
-        <div class="gallery-caption"><span class="gallery-kicker">Gobierno · #1</span><h4>Landing Zone (6 cuentas)</h4><p>4 SCPs desde raíz, 7 etiquetas FinOps y presupuestos USD 811 / 841.</p></div>
+        <div class="gallery-caption"><span class="gallery-kicker">Gobierno · #1</span><h4>Landing Zone (6 cuentas)</h4><p>Segregación de ambientes, políticas globales y presupuestos controlados.</p></div>
       </button>
 
       <button type="button" class="gallery-item" data-zoom-img="img/conectividad-sin-senal.jpg" data-zoom-title="Conectividad de los Cinco Puntos y Operación Sin Señal (#6 y #71)" data-zoom-doc="conectividad-sin-senal">
         <div class="gallery-thumb"><img src="img/conectividad-sin-senal.jpg" alt="Conectividad sin señal" loading="lazy"><span class="gallery-zoom-hint">Ampliar</span></div>
-        <div class="gallery-caption"><span class="gallery-kicker">Conectividad · #6</span><h4>Cinco puntos sin señal</h4><p>140 LTE-M, 48 LoRaWAN en 10 gateways solares y 12 Iridium SBD.</p></div>
+        <div class="gallery-caption"><span class="gallery-kicker">Conectividad · #6</span><h4>Cinco puntos sin señal</h4><p>Mezcla rural LTE-M, LoRaWAN compartido y satélite Iridium con buffer 24 h.</p></div>
       </button>
 
       <button type="button" class="gallery-item" data-zoom-img="img/carga-d-centro-acopio.jpg" data-zoom-title="Patrón de Red del Centro de Acopio: 7 VLANs y Doble Túnel VPN (#8)" data-zoom-doc="carga-d-centro-acopio">
         <div class="gallery-thumb"><img src="img/carga-d-centro-acopio.jpg" alt="Patrón del centro de acopio" loading="lazy"><span class="gallery-zoom-hint">Ampliar</span></div>
-        <div class="gallery-caption"><span class="gallery-kicker">Acopios · #8</span><h4>Patrón de centro de acopio</h4><p>Cauca, Huila y Tolima con 7 VLANs, QoS a 90 Mbps y VPN doble.</p></div>
+        <div class="gallery-caption"><span class="gallery-kicker">Acopios · #8</span><h4>Patrón de centro de acopio</h4><p>Red local en 7 VLANs con visitantes aislados y doble túnel hacia AWS.</p></div>
       </button>
 
       <button type="button" class="gallery-item" data-zoom-img="img/red-data-paths.jpg" data-zoom-title="Rutas de Datos y Plan de Direccionamiento CIDR Sin Solapamiento (#7)" data-zoom-doc="red-direccionamiento-nube">
         <div class="gallery-thumb"><img src="img/red-data-paths.jpg" alt="Rutas de datos de red" loading="lazy"><span class="gallery-zoom-hint">Ampliar</span></div>
-        <div class="gallery-caption"><span class="gallery-kicker">Redes · #7</span><h4>Rutas de datos y CIDRs</h4><p>Rangos 10.41 a 10.90 sin solapamiento y Gateway Endpoints a $0.</p></div>
+        <div class="gallery-caption"><span class="gallery-kicker">Redes · #7</span><h4>Rutas de datos y CIDRs</h4><p>Flujos separados de telemetría, transporte y drones sin solapamiento IP.</p></div>
       </button>
 
       <button type="button" class="gallery-item" data-zoom-img="img/carga-a-ingesta-telemetria.jpg" data-zoom-title="Carga A: Ingesta de Telemetría, Umbrales y Alerta en 245 s (#12)" data-zoom-doc="carga-a-ingesta-telemetria">
         <div class="gallery-thumb"><img src="img/carga-a-ingesta-telemetria.jpg" alt="Ingesta de telemetría" loading="lazy"><span class="gallery-zoom-hint">Ampliar</span></div>
-        <div class="gallery-caption"><span class="gallery-kicker">Telemetría · #12</span><h4>Ingesta y alerta en 245 s</h4><p>IoT Core, SQS con cola de fallos, DynamoDB y notificación SNS.</p></div>
+        <div class="gallery-caption"><span class="gallery-kicker">Telemetría · #12</span><h4>Ingesta y alerta en 245 s</h4><p>Recepción de sensores, reglas de alerta y aviso al caficultor con confirmación.</p></div>
       </button>
 
       <button type="button" class="gallery-item" data-zoom-img="img/carga-e-funciones-foco-patron.jpg" data-zoom-title="Carga E: Función de Confirmación del Foco con Rekognition y Bedrock (#16 y #17)" data-zoom-doc="carga-e-funciones">
         <div class="gallery-thumb"><img src="img/carga-e-funciones-foco-patron.jpg" alt="Función de confirmación del foco" loading="lazy"><span class="gallery-zoom-hint">Ampliar</span></div>
-        <div class="gallery-caption"><span class="gallery-kicker">IA Serverless · #16</span><h4>Confirmación de plagas</h4><p>Filtro anti-rostros con Rekognition + diagnóstico foliar en Bedrock.</p></div>
+        <div class="gallery-caption"><span class="gallery-kicker">IA Serverless · #16</span><h4>Confirmación de plagas</h4><p>Filtro que protege rostros antes del diagnóstico foliar en la nube.</p></div>
       </button>
 
       <button type="button" class="gallery-item" data-zoom-img="img/carga-c-saco-consulta-dr.jpg" data-zoom-title="Carga C: Consulta Pública del Saco y Recuperación Multi-Región (#15 y #19)" data-zoom-doc="carga-c-saco-y-viaje">
         <div class="gallery-thumb"><img src="img/carga-c-saco-consulta-dr.jpg" alt="Consulta pública y DR" loading="lazy"><span class="gallery-zoom-hint">Ampliar</span></div>
-        <div class="gallery-caption"><span class="gallery-kicker">Trazabilidad · #15</span><h4>Consulta del saco y DR</h4><p>CloudFront + WAF y conmutación Route 53 hacia Ohio en &lt; 60 s.</p></div>
+        <div class="gallery-caption"><span class="gallery-kicker">Trazabilidad · #15</span><h4>Consulta del saco y DR</h4><p>Portal web global protegido con conmutación automática a otra región.</p></div>
       </button>
 
       <button type="button" class="gallery-item" data-zoom-img="img/flujo-congelamiento-cosecha.jpg" data-zoom-title="Pipeline CI/CD OIDC y Compuerta de Congelamiento en Cosecha (#26 y #34)" data-zoom-doc="verificacion-ventana-cambio">
         <div class="gallery-thumb"><img src="img/flujo-congelamiento-cosecha.jpg" alt="Flujo CI/CD y congelamiento de cosecha" loading="lazy"><span class="gallery-zoom-hint">Ampliar</span></div>
-        <div class="gallery-caption"><span class="gallery-kicker">CI/CD · #34</span><h4>Pipeline OIDC y cosecha</h4><p>Validación automática y bloqueo 05:00–18:00 COT en temporada.</p></div>
+        <div class="gallery-caption"><span class="gallery-kicker">Automatización · #34</span><h4>Despliegue seguro y cosecha</h4><p>Validación continua sin credenciales fijas y respeto a horarios críticos.</p></div>
       </button>
     </div>
 
-    <!-- Secuencias UML/AWS -->
     <div style="margin-top:42px;padding-top:32px;border-top:1px solid var(--line)">
       <div class="sub-head">
         <h3>Flujos de secuencia críticos</h3>
-        <span>Control humano en fumigación y privacidad Ley 1581</span>
+        <span>Control humano en fumigación y protección de datos personales</span>
       </div>
       <div class="gallery-grid-2">
         <button type="button" class="gallery-item" data-zoom-img="img/carga-b-secuencia-fumigacion.jpg" data-zoom-title="Secuencia: Detección de Plaga, Autorización MFA del Agrónomo y Cierre (#13 y #14)" data-zoom-doc="carga-b-orden-fumigacion">
           <div class="gallery-thumb" style="aspect-ratio:16/9"><img src="img/carga-b-secuencia-fumigacion.jpg" alt="Secuencia de plaga a fumigación" loading="lazy"><span class="gallery-zoom-hint">Ampliar</span></div>
-          <div class="gallery-caption"><span class="gallery-kicker">Secuencia · Drones</span><h4>De la alerta de plaga a la fumigación cerrada</h4><p>Muestra por qué ninguna función automática puede ordenar fumigar sin firma MFA del agrónomo.</p></div>
+          <div class="gallery-caption"><span class="gallery-kicker">Secuencia · Drones</span><h4>De la alerta de plaga a la fumigación cerrada</h4><p>Cómo se garantiza que ninguna fumigación ocurra sin firma del agrónomo ni bitácora final.</p></div>
         </button>
 
         <button type="button" class="gallery-item" data-zoom-img="img/seguridad-secuencia-proteccion-datos.jpg" data-zoom-title="Secuencia: Protección de Datos, Token HMAC-SHA-256 y Consulta Sin PII (Ley 1581)" data-zoom-doc="seguridad-datos-saco">
           <div class="gallery-thumb" style="aspect-ratio:16/9"><img src="img/seguridad-secuencia-proteccion-datos.jpg" alt="Secuencia protección de datos Ley 1581" loading="lazy"><span class="gallery-zoom-hint">Ampliar</span></div>
-          <div class="gallery-caption"><span class="gallery-kicker">Secuencia · Ley 1581</span><h4>Cómo protegemos la identidad del caficultor</h4><p>Tokenización irreversible en KMS y separación física entre datos internos y la consulta pública.</p></div>
+          <div class="gallery-caption"><span class="gallery-kicker">Secuencia · Privacidad</span><h4>Cómo protegemos la identidad del caficultor</h4><p>Tokenización irreversible y separación física entre datos internos y la consulta pública.</p></div>
         </button>
       </div>
     </div>
   </div>
 </section>
 
-<!-- COSTOS FINOPS + TERRAFORM IAC -->
+<!-- DECISIONES TÉCNICAS Y COSTOS (SOLO LOS 4 RECUADROS DE PRECIOS) -->
 <section id="costos" class="bg-soft">
   <div class="wrap reveal">
     <div class="sec-head">
       <div>
-        <h2>Decisiones técnicas <span>que se defienden con cifras.</span></h2>
+        <h2>Decisiones técnicas <span>que hacen viable el piloto.</span></h2>
       </div>
       <p class="sec-lead">
-        Tres ajustes de arquitectura redujeron el gasto anual recurrente de <strong>USD 388.006 a USD 98.790</strong> (-74,5 %) sin sacrificar seguridad ni cobertura rural, y todo el patrón base se codificó en Terraform dentro del límite de 100 horas.
+        El diseño original era demasiado costoso para sostenerse en campo. Con tres decisiones concretas de ingeniería logramos bajar el presupuesto anual recurrente de <strong>USD 388.006 a USD 98.790</strong> y reducir la cuota rural de conectividad de USD 147 a apenas USD 0,20 al mes por finca.
       </p>
     </div>
 
@@ -985,198 +1009,36 @@ footer{
       <article class="evidence-card featured">
         <small>Ahorro anual total</small>
         <strong>USD 289.216</strong>
-        <p>Menos cada año frente al esquema inicial (-74,5 % recurrente).</p>
+        <p>Reducción del 74,5 % cada año frente a la arquitectura tradicional, sin perder seguridad ni cobertura.</p>
       </article>
       <article class="evidence-card">
         <small>Drones contratados</small>
         <strong>-USD 195.353</strong>
-        <p>Un prestador RAC 100 por acopio evita cuadrillas fijas y USD 105k de CapEx.</p>
+        <p>Contratar un operador certificado por acopio evita mantener cuadrillas fijas y ahorra USD 105.486 en compra de equipos.</p>
       </article>
       <article class="evidence-card">
         <small>LoRaWAN compartido</small>
         <strong>-USD 84.552</strong>
-        <p>La cuota rural sin cobertura baja de USD 147 a USD 0,20 al mes por finca.</p>
+        <p>Compartir 10 gateways solares entre 48 fincas sin señal reemplaza enlaces satelitales individuales.</p>
       </article>
       <article class="evidence-card">
-        <small>Red simplificada</small>
+        <small>Red cloud simplificada</small>
         <strong>-USD 9.297</strong>
-        <p>SGs, NACLs (#9) y Gateway Endpoints ($0) en lugar de Network Firewall.</p>
+        <p>Usar Security Groups, NACLs y Gateway Endpoints gratuitos en lugar de firewalls fijos de alto costo.</p>
       </article>
     </div>
-
-    <div class="split-2">
-      <div>
-        <h3 style="margin-bottom:8px">Infraestructura como código en 100 horas</h3>
-        <p style="font-size:14.5px;color:var(--muted);margin-bottom:18px">
-          El repositorio <code>iac/</code> implementa 5 módulos reutilizables con 26 reglas de calidad, autenticación OIDC sin llaves fijas y un <code>terraform plan</code> limpio de <strong>116 recursos</strong> bajo política estricta de cero apply.
-        </p>
-        <div class="table-wrap" style="background:#FFFFFF;border:1px solid var(--line);border-radius:8px;padding:16px 20px">
-          <table class="tech-table">
-            <thead><tr><th>Caja</th><th>Módulo Terraform</th><th class="r">Esfuerzo</th><th class="r">Plan</th></tr></thead>
-            <tbody>
-              <tr><td class="mono">E6-01</td><td>Estado remoto S3 + KMS + <code>use_lockfile</code></td><td class="r">6 h</td><td class="r">Backend</td></tr>
-              <tr><td class="mono">E6-02 / 03</td><td><code>modules/network</code> · VPC, 14 subnets y VPN</td><td class="r">22 h</td><td class="r">48 rec.</td></tr>
-              <tr><td class="mono">E6-04</td><td><code>modules/security</code> · 3 KMS, 4 IAM, 14 SGs</td><td class="r">18 h</td><td class="r">45 rec.</td></tr>
-              <tr><td class="mono">E6-05 / 06</td><td><code>ingest</code> + <code>farm</code> · IoT, SQS, DDB y finca patrón</td><td class="r">24 h</td><td class="r">11 rec.</td></tr>
-              <tr><td class="mono">E6-07</td><td><code>modules/function</code> · Lambda foco + S3 + DLQ</td><td class="r">16 h</td><td class="r">12 rec.</td></tr>
-              <tr><td class="mono">E6-08</td><td><code>.github/</code> · OIDC, TFLint, Trivy y cosecha</td><td class="r">14 h</td><td class="r">CI/CD</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-
-      <div style="display:grid;gap:20px">
-        <h3 style="margin-bottom:-6px">Evidencia real del pipeline CI/CD</h3>
-        <button type="button" class="gallery-item" data-zoom-img="img/plan_prod.jpg" data-zoom-title="Evidencia CI/CD · Terraform Plan Limpio con OIDC (116 recursos, 0 apply)" data-zoom-doc="evidencia-plan-limpio">
-          <div class="gallery-thumb" style="aspect-ratio:16/8"><img src="img/plan_prod.jpg" alt="Terraform plan limpio en GitHub Actions" loading="lazy"><span class="gallery-zoom-hint">Ampliar</span></div>
-          <div class="gallery-caption"><span class="gallery-kicker">Plan limpio · #27</span><h4>Ejecución con OIDC (0 secretos, 0 apply)</h4><p>116 recursos validados sin credenciales estáticas ni mutación en AWS.</p></div>
-        </button>
-
-        <button type="button" class="gallery-item" data-zoom-img="img/cd_cosecha.jpg" data-zoom-title="Evidencia CI/CD · Bloqueo Automático en Ventana de Cosecha 05:00 a 18:00 COT (#34)" data-zoom-doc="verificacion-ventana-cambio">
-          <div class="gallery-thumb" style="aspect-ratio:16/8"><img src="img/cd_cosecha.jpg" alt="Bloqueo automático en ventana de cosecha" loading="lazy"><span class="gallery-zoom-hint">Ampliar</span></div>
-          <div class="gallery-caption"><span class="gallery-kicker">Change Freeze · #34</span><h4>Bloqueo horario de cosecha en acción</h4><p>Demostración real de la detención automática entre 05:00 y 18:00 COT.</p></div>
-        </button>
-      </div>
-    </div>
   </div>
 </section>
 
-<!-- SYSTEM DESIGN: LÁMINAS + LÁMINAS SEPARADAS + SIMULADOR -->
-<section id="diseno">
-  <div class="wrap reveal">
-    <div class="sec-head">
-      <div>
-        <h2>Diseñado para el campo, <span>la cabina y el comprador.</span></h2>
-      </div>
-      <p class="sec-lead">
-        Creamos un sistema de diseño propio de alto contraste (&gt; 7:1 WCAG AAA) pensado para leer bajo sol directo, tocar con guantes y proteger la privacidad del productor. Sin construir apps prematuras, evitamos USD 17.500 en retrabajo.
-      </p>
-    </div>
-
-    <div class="sub-head">
-      <h3>Fundamentos del sistema de diseño</h3>
-      <span>Marca, paleta solar, tipografía y componentes</span>
-    </div>
-    <div class="gallery-grid" style="margin-bottom:40px">
-      <button type="button" class="gallery-item" data-zoom-img="img/lamina-sistema-diseno-aromapacifico.svg" data-zoom-title="Lámina Maestra · Las Tres Aplicaciones de AromaPacífico (#38)" data-zoom-doc="sistema-de-diseno-aromapacifico">
-        <div class="gallery-thumb"><img src="img/lamina-sistema-diseno-aromapacifico.svg" alt="Lámina consolidada 3 apps" loading="lazy"><span class="gallery-zoom-hint">Ampliar</span></div>
-        <div class="gallery-caption"><span class="gallery-kicker">Lámina maestra · #38</span><h4>Vista de las 3 aplicaciones</h4><p>Coherencia visual entre finca, camión y portal internacional.</p></div>
-      </button>
-
-      <button type="button" class="gallery-item" data-zoom-img="img/diseno-logo-paleta-estados.svg" data-zoom-title="Marca, Paleta Solar AAA y Triple Codificación de Estados (#35)" data-zoom-doc="logo-y-paleta">
-        <div class="gallery-thumb"><img src="img/diseno-logo-paleta-estados.svg" alt="Logo, paleta y estados" loading="lazy"><span class="gallery-zoom-hint">Ampliar</span></div>
-        <div class="gallery-caption"><span class="gallery-kicker">Marca y color · #35</span><h4>Paleta solar AAA</h4><p>Isotipo en 3 versiones y estados legibles incluso en impresión B/N.</p></div>
-      </button>
-
-      <button type="button" class="gallery-item" data-zoom-img="img/diseno-tipografia-espaciado-grilla.svg" data-zoom-title="Tipografía Dual (Cabina vs. Web), Espaciado 8 pt y Grillas (#36)" data-zoom-doc="tipografia-espaciado">
-        <div class="gallery-thumb"><img src="img/diseno-tipografia-espaciado-grilla.svg" alt="Tipografía y espaciado" loading="lazy"><span class="gallery-zoom-hint">Ampliar</span></div>
-        <div class="gallery-caption"><span class="gallery-kicker">Tipografía · #36</span><h4>Escala dual y grillas</h4><p>Cabina a 65 cm (mín. 14 px) y lectura analítica en escritorio.</p></div>
-      </button>
-
-      <button type="button" class="gallery-item" data-zoom-img="img/diseno-componentes-reglas-uso.svg" data-zoom-title="Cinco Componentes Base y Reglas de Campo (#37)" data-zoom-doc="componentes-y-reglas-de-uso">
-        <div class="gallery-thumb"><img src="img/diseno-componentes-reglas-uso.svg" alt="Cinco componentes base" loading="lazy"><span class="gallery-zoom-hint">Ampliar</span></div>
-        <div class="gallery-caption"><span class="gallery-kicker">UI Kit · #37</span><h4>Cinco componentes base</h4><p>Botones 56 px, báscula, alertas y tarjeta de saco por rol.</p></div>
-      </button>
-    </div>
-
-    <div class="sub-head" style="padding-top:28px;border-top:1px solid var(--line)">
-      <h3>Láminas separadas por aplicación</h3>
-      <span>Cada pantalla en detalle con sus decisiones de usabilidad</span>
-    </div>
-    <div class="gallery-grid-3" style="margin-bottom:40px">
-      <button type="button" class="gallery-item" data-zoom-img="img/lamina-app-caficultor.svg" data-zoom-title="Lámina 1 de 3 · App Móvil del Caficultor (Campo Abierto y Sol > 80.000 lux)" data-zoom-doc="sistema-de-diseno-aromapacifico">
-        <div class="gallery-thumb"><img src="img/lamina-app-caficultor.svg" alt="App móvil del caficultor" loading="lazy"><span class="gallery-zoom-hint">Ampliar</span></div>
-        <div class="gallery-caption"><span class="gallery-kicker">App 1 · Campo</span><h4>App del Caficultor</h4><p>Pocas pantallas, contraste solar extremo, báscula 60 kg y buffer 24 h.</p></div>
-      </button>
-
-      <button type="button" class="gallery-item" data-zoom-img="img/lamina-app-transportador.svg" data-zoom-title="Lámina 2 de 3 · App Móvil del Transportador (Cabina a 65 cm · ISO 15008)" data-zoom-doc="sistema-de-diseno-aromapacifico">
-        <div class="gallery-thumb"><img src="img/lamina-app-transportador.svg" alt="App móvil del transportador" loading="lazy"><span class="gallery-zoom-hint">Ampliar</span></div>
-        <div class="gallery-caption"><span class="gallery-kicker">App 2 · Ruta</span><h4>App del Transportador</h4><p>Cifras grandes para cabina, guarda táctil de 12 px y GPS offline.</p></div>
-      </button>
-
-      <button type="button" class="gallery-item" data-zoom-img="img/lamina-portal-comprador.svg" data-zoom-title="Lámina 3 de 3 · Portal Web del Comprador Internacional (Ley 1581)" data-zoom-doc="sistema-de-diseno-aromapacifico">
-        <div class="gallery-thumb"><img src="img/lamina-portal-comprador.svg" alt="Portal web del comprador" loading="lazy"><span class="gallery-zoom-hint">Ampliar</span></div>
-        <div class="gallery-caption"><span class="gallery-kicker">App 3 · Web</span><h4>Portal del Comprador</h4><p>Certificado oficial por código HMAC sin exponer cédulas ni fincas.</p></div>
-      </button>
-    </div>
-
-    <!-- Paleta copiable -->
-    <div style="padding-top:28px;border-top:1px solid var(--line)">
-      <div class="sub-head">
-        <h3>Paleta oficial (clic para copiar token CSS)</h3>
-        <span id="copy-feedback" style="color:var(--green)">Tokens listos para producción</span>
-      </div>
-      <div class="swatch-row" id="swatch-grid">
-        <button type="button" class="swatch-btn" data-copy="--ap-color-brand-primary: #135E34"><i class="swatch-fill" style="background:#135E34"></i><div class="swatch-info"><b>Cordillera</b><code>#135E34</code><span>7.84:1 AAA</span></div></button>
-        <button type="button" class="swatch-btn" data-copy="--ap-color-brand-cherry: #9E1B1B"><i class="swatch-fill" style="background:#9E1B1B"></i><div class="swatch-info"><b>Cereza</b><code>#9E1B1B</code><span>10.02:1 AAA</span></div></button>
-        <button type="button" class="swatch-btn" data-copy="--ap-color-brand-pacific: #0F4C81"><i class="swatch-fill" style="background:#0F4C81"></i><div class="swatch-info"><b>Pacífico</b><code>#0F4C81</code><span>7.78:1 AAA</span></div></button>
-        <button type="button" class="swatch-btn" data-copy="--ap-color-brand-earth: #4A2E1B"><i class="swatch-fill" style="background:#4A2E1B"></i><div class="swatch-info"><b>Tierra</b><code>#4A2E1B</code><span>9.87:1 AAA</span></div></button>
-        <button type="button" class="swatch-btn" data-copy="--ap-color-neutral-carbon: #0F172A"><i class="swatch-fill" style="background:#0F172A"></i><div class="swatch-info"><b>Carbón</b><code>#0F172A</code><span>17.85:1 AAA</span></div></button>
-      </div>
-    </div>
-
-    <!-- Simulador interactivo limpio -->
-    <div class="workbench">
-      <div style="display:grid;gap:14px;align-content:start">
-        <span class="mono" style="font-size:11.5px;color:var(--green);letter-spacing:.08em;text-transform:uppercase">Prueba en vivo · Controles de campo</span>
-        <div style="display:flex;gap:12px;flex-wrap:wrap">
-          <button type="button" class="ap-btn ap-btn--primary" id="lab-btn-sync" style="flex:1"><span>Registrar pesaje (56 px)</span></button>
-          <button type="button" class="ap-btn ap-btn--danger">Alerta roya</button>
-        </div>
-        <div style="display:grid;gap:6px">
-          <label for="lab-humidity" style="font-size:12.5px;font-weight:700;color:var(--ink)">Validador de humedad FNC (prueba un valor mayor a 12.5 %)</label>
-          <div class="ap-input-wrap">
-            <input type="number" step="0.1" id="lab-humidity" class="ap-input" value="11.8">
-            <span class="ap-input-suffix">%</span>
-          </div>
-          <span id="lab-humidity-msg" style="font-size:13px;color:var(--green);font-weight:600">Humedad óptima para exportación (8.0 % – 12.5 %).</span>
-        </div>
-        <div style="display:flex;flex-wrap:wrap;gap:8px">
-          <span class="ap-badge ap-badge--prep">EN PREPARACIÓN</span>
-          <span class="ap-badge ap-badge--travel">EN VIAJE</span>
-          <span class="ap-badge ap-badge--accepted">ACEPTADO</span>
-          <span class="ap-badge ap-badge--rejected">RECHAZADO</span>
-        </div>
-      </div>
-
-      <div style="display:grid;gap:14px;align-content:start">
-        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
-          <span class="mono" style="font-size:11.5px;color:var(--green);letter-spacing:.08em;text-transform:uppercase">Vista pública del saco · Ley 1581</span>
-          <button type="button" class="btn-outline" id="btn-toggle-1581" style="padding:6px 12px">Ver campos bloqueados</button>
-        </div>
-        <div style="padding:20px;border:1px solid var(--line-strong);border-radius:8px;background:var(--warm);display:grid;gap:14px">
-          <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;padding-bottom:12px;border-bottom:1px solid var(--line)">
-            <div>
-              <span class="mono" style="font-size:11px;color:var(--green)">CERTIFICADO FNC</span>
-              <div class="mono" style="font-size:18px;font-weight:500;color:var(--ink)">SACO-2026-CAU-7F3A9C12</div>
-            </div>
-            <span class="ap-badge ap-badge--accepted">ACEPTADO</span>
-          </div>
-          <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;font-size:13px" class="num">
-            <div><span style="font-size:10.5px;color:var(--muted);display:block">ORIGEN</span><strong>Cauca</strong></div>
-            <div><span style="font-size:10.5px;color:var(--muted);display:block">VARIEDAD</span><strong>Castillo</strong></div>
-            <div><span style="font-size:10.5px;color:var(--muted);display:block">SECADO</span><strong>11.8 %</strong></div>
-            <div><span style="font-size:10.5px;color:var(--muted);display:block">PUERTO</span><strong>Buenaventura</strong></div>
-          </div>
-          <div class="ap-saco-blocked" id="saco-blocked-panel">
-            <strong>Bloqueados físicamente en <code>sacos_publicos</code>:</strong>
-            <code>cedula_caficultor</code>, <code>nombre_caficultor</code>, <code>finca_id</code>, <code>coordenadas_gps_finca</code> y <code>georutas_gps_viaje</code>.
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ROADMAP INTERACTIVO (4 SPRINTS) -->
-<section id="roadmap" class="bg-soft">
+<!-- ROADMAP INTERACTIVO -->
+<section id="roadmap">
   <div class="wrap reveal">
     <div class="sec-head">
       <div>
         <h2>Cuatro sprints <span>de principio a fin.</span></h2>
       </div>
       <p class="sec-lead">
-        Del 29 de octubre al 21 de noviembre de 2026: 8 fases completas, 42 historias auditadas en Kanban y cierre verificado contra los 8 criterios del reto.
+        Del 29 de octubre al 21 de noviembre de 2026: ocho fases completadas y 42 historias auditadas contra los criterios del proyecto.
       </p>
     </div>
 
@@ -1188,29 +1050,29 @@ footer{
         <span>02</span><small>1 – 7 Nov</small><strong>Sprint 1 · Arquitectura</strong>
       </button>
       <button type="button" class="phase-btn" data-sprint="2" role="tab" aria-selected="false">
-        <span>03</span><small>8 – 14 Nov</small><strong>Sprint 2 · IaC, FinOps y UI</strong>
+        <span>03</span><small>8 – 14 Nov</small><strong>Sprint 2 · IaC y Costos</strong>
       </button>
       <button type="button" class="phase-btn" data-sprint="3" role="tab" aria-selected="false">
-        <span>04</span><small>15 – 21 Nov</small><strong>Sprint 3 · Cierre y Defensa</strong>
+        <span>04</span><small>15 – 21 Nov</small><strong>Sprint 3 · Cierre</strong>
       </button>
     </div>
 
     <div class="phase-detail" id="sprint-detail" aria-live="polite">
       <span>FASE 0 · DECISIONES BASE</span>
       <p>Se definieron la nube principal (AWS us-east-1), el respaldo en Ohio, Azure como segunda nube preparada, la convención de idiomas y el acotamiento exacto de las 100 horas de Terraform.</p>
-      <strong>Entregable clave: Briefing Senior y estructura de repositorios lista para trabajar en paralelo.</strong>
+      <strong>Entregable clave: Briefing inicial y estructura de repositorios lista para trabajar en paralelo.</strong>
     </div>
   </div>
 </section>
 
 <!-- BIBLIOTECA DOCUMENTAL (48 DOCUMENTOS) -->
-<section id="biblioteca">
+<section id="biblioteca" class="bg-soft">
   <div class="wrap reveal">
     <div class="sec-head">
       <div>
         <h2>Toda la documentación, <span>fácil de consultar.</span></h2>
       </div>
-      <span class="mono" id="lib-count" style="font-size:12.5px;color:var(--green)">48 de 48 documentos</span>
+      <span id="lib-count" style="font-size:13px;font-weight:600;color:var(--green)">48 de 48 documentos</span>
     </div>
 
     <div class="doc-explorer">
@@ -1235,7 +1097,7 @@ footer{
   </div>
 </section>
 
-<!-- CIERRE EDITORIAL Y REPOSITORIOS -->
+<!-- CIERRE OSCURO (INTACTO) Y FOOTER SIN ETIQUETAS TÉCNICAS -->
 <section class="closing" id="repositorios">
   <div class="wrap reveal">
     <div class="closing-grid">
@@ -1277,30 +1139,33 @@ footer{
 <footer>
   <div class="footer-inner">
     <span>AromaPacífico · Noviembre de 2026 · Caso académico inspirado en la Federación Nacional de Cafeteros (no es un proyecto oficial de la Federación).</span>
-    <span class="mono">AWS us-east-1 + us-east-2 · Ley 1581 · Cero Apply</span>
   </div>
 </footer>
 
-<!-- MODAL SUPER-ZOOM DE DIAGRAMAS -->
+<!-- MODAL SUPER-ZOOM CON ARRASTRE (DRAG-TO-PAN) -->
 <div class="modal-backdrop" id="zoom-modal" role="dialog" aria-modal="true" aria-labelledby="zoom-modal-title">
   <div class="modal-dialog">
     <div class="modal-head">
       <div>
-        <span class="mono" style="font-size:11px;color:var(--green);letter-spacing:.08em;text-transform:uppercase">Visor de alta resolución</span>
-        <h3 id="zoom-modal-title" style="margin-top:2px;font-size:17px">Diagrama</h3>
+        <span style="font-size:11px;font-weight:600;color:var(--green);letter-spacing:.06em;text-transform:uppercase">Visor de alta resolución</span>
+        <h3 id="zoom-modal-title" style="margin-top:2px;font-size:16.5px">Diagrama</h3>
       </div>
       <div class="zoom-controls">
         <button type="button" class="zoom-ctrl-btn" id="btn-zoom-out" title="Alejar (-)">-</button>
         <button type="button" class="zoom-ctrl-btn" id="btn-zoom-reset" title="Restablecer zoom">100 %</button>
         <button type="button" class="zoom-ctrl-btn" id="btn-zoom-in" title="Acercar (+)">+</button>
-        <button type="button" class="zoom-ctrl-btn" id="btn-zoom-doc" style="display:none">Ver documento en biblioteca</button>
+        <button type="button" class="zoom-ctrl-btn" id="btn-zoom-doc" style="display:none">Ver en biblioteca</button>
         <button type="button" class="modal-close" id="zoom-modal-close" aria-label="Cerrar visor">
           <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 6 6 18M6 6l12 12"/></svg>
         </button>
       </div>
     </div>
     <div class="zoom-canvas" id="zoom-canvas">
-      <img id="zoom-modal-img" src="" alt="">
+      <img id="zoom-modal-img" src="" alt="" draggable="false">
+    </div>
+    <div class="modal-foot">
+      <span>Mantén presionado el clic para agarrar y mover el diagrama</span>
+      <span>Rueda del ratón o botones + / - para acercar · Esc para cerrar</span>
     </div>
   </div>
 </div>
@@ -1962,19 +1827,19 @@ if("IntersectionObserver" in window){
   document.querySelectorAll(".reveal").forEach(el => el.classList.add("is-visible"));
 }
 
-/* TOGGLE INTERACTIVO: MES NORMAL VS PICO DE COSECHA */
+/* TOGGLE INTERACTIVO: TEMPORADA NORMAL VS PICO DE COSECHA */
 const OP_DATA = {
   normal: {
-    readings:"3.600", readingsDesc:"200 fincas en monitoreo de cultivo y viajes regulares.", readingsBar:"34%",
-    cost:"USD 811", costDesc:"Las funciones serverless cuestan menos de USD 1 en reposo.", costNote:"Presupuesto validado (#70)",
-    flights:"17", flightsDesc:"Campaña trimestral contratada bajo RAC 100 sin nómina ociosa.", flightsBar:"15%",
-    queries:"10 / min", queriesDesc:"Portal público protegido con CloudFront, WAF y réplica en Ohio.", queriesNote:"SLO 99,9 % garantizado"
+    readings:"3.600", readingsDesc:"Monitoreo constante en las 200 fincas y rutas habituales.", readingsBar:"34%",
+    cost:"USD 811", costDesc:"Servicios bajo demanda que no cobran por capacidad ociosa.", costNote:"Operación optimizada",
+    flights:"17", flightsDesc:"Campaña trimestral contratada sin mantener cuadrillas fijas.", flightsBar:"15%",
+    queries:"10 / min", queriesDesc:"Acceso web estable para compradores internacionales.", queriesNote:"Disponibilidad 99,9 %"
   },
   cosecha: {
-    readings:"10.800", readingsDesc:"Cultivo (4 h), secado activo (1 h) y 60 camiones en ruta (5 min).", readingsBar:"100%",
-    cost:"USD 841", costDesc:"Solo +USD 30 extra en cosecha: Lambda e IA suman apenas USD 1,13.", costNote:"Alerta sin apagar ingesta",
+    readings:"10.800", readingsDesc:"Cultivo cada 4 h, secado cada hora y 60 camiones en ruta.", readingsBar:"100%",
+    cost:"USD 841", costDesc:"Solo +USD 30 en el pico: las funciones e IA suman USD 1,13.", costNote:"Escala sin interrupciones",
     flights:"167", flightsDesc:"Revisión mensual, confirmación de focos, fumigación MFA y estimación.", flightsBar:"100%",
-    queries:"30 / min", queriesDesc:"Picos de consulta de compradores internacionales con cero caídas.", queriesNote:"Failover Ohio en < 60 s"
+    queries:"30 / min", queriesDesc:"Picos de consulta global protegidos con respaldo automático.", queriesNote:"Conmutación en < 60 s"
   }
 };
 
@@ -2007,22 +1872,22 @@ const SPRINTS = [
   {
     tag:"FASE 0 · DECISIONES BASE (29 – 31 OCT)",
     body:"Se definieron la nube principal (AWS us-east-1), el respaldo en Ohio, Azure como segunda nube preparada, la convención de idiomas y el acotamiento exacto de las 100 horas de Terraform.",
-    exit:"Entregable clave: Briefing Senior y estructura de repositorios lista para trabajar en paralelo."
+    exit:"Entregable clave: Briefing inicial y estructura de repositorios lista para trabajar en paralelo."
   },
   {
     tag:"FASE 1 · ARQUITECTURA COMPLETA (1 – 7 NOV)",
-    body:"Se diseñaron las 19 historias de arquitectura: Landing Zone de 6 cuentas, conectividad sin señal, patrón de 7 VLANs por acopio, catálogo de firewall #9, seguridad Ley 1581, drones RAC 100 y observabilidad.",
-    exit:"Entregable clave: 30 diagramas técnicos con iconografía oficial AWS/Azure y compendio de arquitectura."
+    body:"Se diseñaron las 19 historias de arquitectura: Landing Zone de 6 cuentas, conectividad sin señal, patrón de 7 VLANs por acopio, políticas de red, privacidad Ley 1581, drones RAC 100 y observabilidad.",
+    exit:"Entregable clave: 30 diagramas técnicos con iconografía oficial y compendio de arquitectura."
   },
   {
-    tag:"FASES 2, 3, 4 Y 5 · IAC, FINOPS, CAMBIO Y SYSTEM DESIGN (8 – 14 NOV)",
-    body:"Se codificaron los 5 módulos Terraform (116 recursos limpios en 100 horas exactas), el pipeline OIDC con bloqueo de cosecha, el estudio FinOps (-74,5 % ahorro anual), release notes y el System Design AAA.",
-    exit:"Entregable clave: Plan limpio con cero apply, ahorro de USD 289.216/año y 7 láminas visuales de diseño."
+    tag:"FASES 2, 3, 4 Y 5 · IAC, COSTOS Y CAMBIO (8 – 14 NOV)",
+    body:"Se codificaron los 5 módulos Terraform (116 recursos en plan en 100 horas exactas), el pipeline OIDC con bloqueo de cosecha, el estudio de ahorros (-74,5 % anual) y las plantillas de release notes.",
+    exit:"Entregable clave: Plan limpio de infraestructura y ahorro recurrente de USD 289.216 al año."
   },
   {
-    tag:"FASES 6 Y 7 · CONSISTENCIA Y SUSTENTACIÓN (15 – 21 NOV)",
-    body:"Auditoría cruzada de código frente a diagramas y presupuestos (HU #41), verificación de los 8 criterios del reto (HU #42), guion cronometrado de 20 minutos y banco de preguntas críticas del jurado.",
-    exit:"Estado actual: 100 % completado, validado automáticamente y publicado en GitHub Pages."
+    tag:"FASES 6 Y 7 · CONSISTENCIA Y CIERRE (15 – 21 NOV)",
+    body:"Auditoría cruzada de código frente a diagramas y presupuestos, verificación de los 8 criterios del reto, guion cronometrado de 20 minutos y banco de preguntas del jurado.",
+    exit:"Estado actual: 100 % completado, validado automáticamente y publicado en línea."
   }
 ];
 
@@ -2038,51 +1903,6 @@ document.querySelectorAll("[data-sprint]").forEach(btn => {
     const s = SPRINTS[idx];
     sprintDetailEl.innerHTML = `<span>${s.tag}</span><p>${s.body}</p><strong>${s.exit}</strong>`;
   });
-});
-
-/* SYSTEM DESIGN: COPIADO Y SIMULADOR */
-const copyFeedback = document.getElementById("copy-feedback");
-document.getElementById("swatch-grid").addEventListener("click", e => {
-  const btn = e.target.closest(".swatch-btn");
-  if(!btn) return;
-  const text = btn.dataset.copy;
-  if(navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).catch(()=>{});
-  copyFeedback.textContent = "Copiado: " + text;
-});
-
-const labHumInput = document.getElementById("lab-humidity");
-const labHumMsg = document.getElementById("lab-humidity-msg");
-labHumInput.addEventListener("input", () => {
-  const val = parseFloat(labHumInput.value);
-  if(isNaN(val) || val > 12.5 || val < 8){
-    labHumInput.classList.add("ap-input--error");
-    labHumMsg.style.color = "#9E1B1B";
-    labHumMsg.textContent = "Fuera de rango permitido por la FNC (8.0 % – 12.5 %).";
-  }else{
-    labHumInput.classList.remove("ap-input--error");
-    labHumMsg.style.color = "#135E34";
-    labHumMsg.textContent = "Humedad óptima para exportación (8.0 % – 12.5 %).";
-  }
-});
-
-const labBtnSync = document.getElementById("lab-btn-sync");
-labBtnSync.addEventListener("click", () => {
-  const label = labBtnSync.querySelector("span");
-  const prev = label.textContent;
-  labBtnSync.disabled = true;
-  label.textContent = "Guardando en buffer local...";
-  setTimeout(() => {
-    labBtnSync.disabled = false;
-    label.textContent = "Pesaje confirmado con ACK";
-    setTimeout(() => { label.textContent = prev; }, 1400);
-  }, 650);
-});
-
-const btnToggle1581 = document.getElementById("btn-toggle-1581");
-const blockedPanel = document.getElementById("saco-blocked-panel");
-btnToggle1581.addEventListener("click", () => {
-  const open = blockedPanel.classList.toggle("is-visible");
-  btnToggle1581.textContent = open ? "Ocultar campos bloqueados" : "Ver campos bloqueados";
 });
 
 /* BIBLIOTECA MAESTRO-DETALLE (48 DOCUMENTOS) */
@@ -2163,15 +1983,15 @@ function renderReader(doc, terms){
   docReaderEl.innerHTML = `
     <div>
       <span class="reader-kicker">${doc.cat}</span>
-      <h3 style="font-size:23px;margin-top:6px">${highlightMatch(doc.title, terms)}</h3>
+      <h3 style="font-size:21px;margin-top:6px">${highlightMatch(doc.title, terms)}</h3>
     </div>
     <div class="reader-meta">
       <div><span>Issue</span><strong>${doc.issue}</strong></div>
       <div><span>Cajas Épica 6</span><strong>${doc.e6}</strong></div>
-      <div><span>Ruta en GitHub</span><strong class="mono" style="font-size:12px">${doc.path}</strong></div>
+      <div><span>Ruta en GitHub</span><strong style="font-size:12px">${doc.path}</strong></div>
     </div>
     <div>
-      <p style="color:var(--body);font-size:15px">${highlightMatch(doc.summary, terms)}</p>
+      <p style="color:var(--body);font-size:14.5px">${highlightMatch(doc.summary, terms)}</p>
     </div>
     <div>
       <h4 style="margin-bottom:8px;font-size:14px;color:var(--ink)">Puntos clave</h4>
@@ -2233,25 +2053,65 @@ function selectDocAndScroll(id){
 window.selectDocAndScroll = selectDocAndScroll;
 renderCategoryChips(); renderExplorer();
 
-/* MODAL SUPER-ZOOM */
+/* MODAL SUPER-ZOOM CON ARRASTRE POR MANO (GRAB / GRABBING) Y RUEDA */
 const zoomModal = document.getElementById("zoom-modal");
+const zoomCanvas = document.getElementById("zoom-canvas");
 const zoomImg = document.getElementById("zoom-modal-img");
 const btnZoomDoc = document.getElementById("btn-zoom-doc");
 let lastFocusEl = null, currentZoomPct = 100, currentZoomDocId = null;
 
 function setZoom(pct){
-  currentZoomPct = Math.min(260, Math.max(60, pct));
+  currentZoomPct = Math.min(300, Math.max(70, Math.round(pct)));
   zoomImg.style.width = currentZoomPct + "%";
   document.getElementById("btn-zoom-reset").textContent = currentZoomPct + " %";
 }
-document.getElementById("btn-zoom-in").addEventListener("click", () => setZoom(currentZoomPct + 30));
-document.getElementById("btn-zoom-out").addEventListener("click", () => setZoom(currentZoomPct - 30));
-document.getElementById("btn-zoom-reset").addEventListener("click", () => setZoom(100));
+document.getElementById("btn-zoom-in").addEventListener("click", () => setZoom(currentZoomPct + 35));
+document.getElementById("btn-zoom-out").addEventListener("click", () => setZoom(currentZoomPct - 35));
+document.getElementById("btn-zoom-reset").addEventListener("click", () => {
+  setZoom(100);
+  zoomCanvas.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+});
+
+/* Zoom suave con rueda del ratón sobre el visor */
+zoomCanvas.addEventListener("wheel", e => {
+  e.preventDefault();
+  const delta = e.deltaY < 0 ? 20 : -20;
+  setZoom(currentZoomPct + delta);
+}, { passive: false });
+
+/* Arrastrar con clic (mano grab / grabbing) */
+let isDragging = false, dragStartX = 0, dragStartY = 0, scrollStartX = 0, scrollStartY = 0;
+
+zoomCanvas.addEventListener("mousedown", e => {
+  if(e.button !== 0) return;
+  isDragging = true;
+  zoomCanvas.classList.add("is-dragging");
+  dragStartX = e.clientX;
+  dragStartY = e.clientY;
+  scrollStartX = zoomCanvas.scrollLeft;
+  scrollStartY = zoomCanvas.scrollTop;
+});
+
+window.addEventListener("mousemove", e => {
+  if(!isDragging) return;
+  e.preventDefault();
+  zoomCanvas.scrollLeft = scrollStartX - (e.clientX - dragStartX);
+  zoomCanvas.scrollTop = scrollStartY - (e.clientY - dragStartY);
+});
+
+window.addEventListener("mouseup", () => {
+  if(!isDragging) return;
+  isDragging = false;
+  zoomCanvas.classList.remove("is-dragging");
+});
 
 function closeZoomModal(){
+  isDragging = false;
+  zoomCanvas.classList.remove("is-dragging");
   zoomModal.classList.remove("is-open");
   if(lastFocusEl && typeof lastFocusEl.focus === "function") lastFocusEl.focus();
 }
+
 document.querySelectorAll("[data-zoom-img]").forEach(btn => {
   btn.addEventListener("click", () => {
     lastFocusEl = btn;
@@ -2260,15 +2120,24 @@ document.querySelectorAll("[data-zoom-img]").forEach(btn => {
     document.getElementById("zoom-modal-title").textContent = btn.dataset.zoomTitle;
     currentZoomDocId = btn.dataset.zoomDoc || null;
     btnZoomDoc.style.display = currentZoomDocId ? "inline-block" : "none";
-    setZoom(100);
+    setZoom(125);
+    zoomCanvas.scrollTop = 0;
+    zoomCanvas.scrollLeft = 0;
     zoomModal.classList.add("is-open");
     document.getElementById("zoom-modal-close").focus();
   });
 });
+
 btnZoomDoc.addEventListener("click", () => { closeZoomModal(); if(currentZoomDocId) selectDocAndScroll(currentZoomDocId); });
 document.getElementById("zoom-modal-close").addEventListener("click", closeZoomModal);
 zoomModal.addEventListener("click", e => { if(e.target === zoomModal) closeZoomModal(); });
-window.addEventListener("keydown", e => { if(e.key === "Escape" && zoomModal.classList.contains("is-open")) closeZoomModal(); });
+window.addEventListener("keydown", e => {
+  if(!zoomModal.classList.contains("is-open")) return;
+  if(e.key === "Escape") closeZoomModal();
+  if(e.key === "+" || e.key === "=") setZoom(currentZoomPct + 30);
+  if(e.key === "-") setZoom(currentZoomPct - 30);
+  if(e.key === "0") setZoom(100);
+});
 </script>
 </body>
 </html>
