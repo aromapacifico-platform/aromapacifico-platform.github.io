@@ -127,23 +127,17 @@ p{margin:0}
   height:70px;display:flex;align-items:center;justify-content:space-between;gap:24px;
 }
 .brand{
-  display:inline-flex;align-items:center;gap:10px;
-  text-decoration:none;color:#FFFFFF;font-size:18px;font-weight:400;letter-spacing:-0.02em;flex-shrink:0;
+  display:inline-flex;align-items:center;
+  text-decoration:none;flex-shrink:0;
 }
-.brand img{height:30px;width:30px}
-.brand b{font-weight:700;color:var(--mint)}
+.brand img{height:36px;width:auto;display:block}
 
-.site-nav{display:flex;align-items:center;gap:26px}
+.site-nav{display:flex;align-items:center;gap:28px}
 .site-nav a{
-  font-size:12.5px;font-weight:500;letter-spacing:.04em;
+  font-size:13px;font-weight:500;letter-spacing:.03em;
   text-decoration:none;color:var(--dark-muted);transition:color .18s ease;
 }
 .site-nav a:hover,.site-nav a.is-active{color:#FFFFFF}
-.site-nav .nav-cta{
-  padding:9px 16px;border:1px solid rgba(110,231,183,.45);border-radius:5px;
-  color:#FFFFFF;font-weight:600;transition:background-color .18s ease,border-color .18s ease,color .18s ease;
-}
-.site-nav .nav-cta:hover{background:var(--mint);border-color:var(--mint);color:var(--dark-bg)}
 
 .menu-toggle{
   display:none;align-items:center;gap:8px;height:40px;padding:0 14px;
@@ -159,7 +153,7 @@ p{margin:0}
   display:block;padding:12px 10px;color:#E2EFE7;text-decoration:none;
   font-size:13.5px;font-weight:500;border-bottom:1px solid rgba(255,255,255,.06);
 }
-.mobile-drawer a:last-child{border-bottom:0;color:var(--mint)}
+.mobile-drawer a:last-child{border-bottom:0}
 
 /* ==========================================================================
    HERO BANNER CON ILUSTRACIÓN ANIMADA DE SACO DE CAFÉ Y TRAZABILIDAD
@@ -220,26 +214,7 @@ p{margin:0}
   0%,100%{transform:translateY(0px)}
   50%{transform:translateY(-10px)}
 }
-@keyframes pulseSignal{
-  0%{opacity:.52;transform:scale(.94)}
-  50%{opacity:.14;transform:scale(1.07)}
-  100%{opacity:.52;transform:scale(.94)}
-}
-@keyframes dashFlow{
-  from{stroke-dashoffset:48}
-  to{stroke-dashoffset:0}
-}
-@keyframes pulseDot{
-  0%,100%{opacity:.95;transform:scale(1)}
-  50%{opacity:.35;transform:scale(.7)}
-}
 .sack-float{animation:floatSack 5s ease-in-out infinite;transform-origin:center}
-.pulse-ring{animation:pulseSignal 4.2s ease-in-out infinite;transform-origin:210px 190px}
-.pulse-ring.r2{animation-delay:1.4s}
-.orbit-dash{stroke-dasharray:6 7;animation:dashFlow 3.4s linear infinite}
-.dot-orbit{animation:pulseDot 3s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
-.dot-orbit.d2{animation-delay:1s}
-.dot-orbit.d3{animation-delay:2s}
 
 /* Banda inferior del Hero: 4 cifras editoriales naturales */
 .hero-stats{
@@ -615,8 +590,7 @@ footer{background:#04120B;color:var(--dark-muted);font-size:13px;padding-block:2
 <header class="site-header">
   <div class="header-inner">
     <a class="brand" href="#inicio" aria-label="AromaPacífico, inicio">
-      <img src="img/isotipo-negativo.svg" alt="">
-      <span>Aroma<b>Pacífico</b></span>
+      <img src="img/logo-banner.png" alt="AromaPacífico">
     </a>
 
     <nav class="site-nav" id="top-nav" aria-label="Navegación principal">
@@ -624,7 +598,7 @@ footer{background:#04120B;color:var(--dark-muted);font-size:13px;padding-block:2
       <a href="#operacion">Operación</a>
       <a href="#arquitectura">Arquitectura</a>
       <a href="#costos">Costos</a>
-      <a class="nav-cta" href="#biblioteca">Biblioteca (48)</a>
+      <a href="#biblioteca">Biblioteca</a>
     </nav>
 
     <button type="button" class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="mobile-drawer">
@@ -635,9 +609,9 @@ footer{background:#04120B;color:var(--dark-muted);font-size:13px;padding-block:2
   <div class="mobile-drawer" id="mobile-drawer" aria-label="Navegación móvil">
     <a href="#contexto">Contexto</a>
     <a href="#operacion">Operación</a>
-    <a href="#arquitectura">Arquitectura y Diagramas</a>
-    <a href="#costos">Decisiones y Costos</a>
-    <a href="#biblioteca">Explorar Biblioteca (48 docs)</a>
+    <a href="#arquitectura">Arquitectura</a>
+    <a href="#costos">Costos</a>
+    <a href="#biblioteca">Biblioteca</a>
   </div>
 </header>
 
@@ -677,18 +651,8 @@ footer{background:#04120B;color:var(--dark-muted);font-size:13px;padding-block:2
             </linearGradient>
           </defs>
 
-          <!-- Halo y ondas de telemetría -->
-          <circle cx="210" cy="190" r="168" fill="url(#heroGlow)"/>
-          <circle class="pulse-ring" cx="210" cy="190" r="128" stroke="#6EE7B7" stroke-opacity="0.25" stroke-width="1.5"/>
-          <circle class="pulse-ring r2" cx="210" cy="190" r="162" stroke="#6EE7B7" stroke-opacity="0.16" stroke-width="1.2" stroke-dasharray="5 7"/>
-
-          <!-- Curva orbital animada (ruta montaña -> puerto) -->
-          <path class="orbit-dash" d="M 42 252 C 36 116, 138 36, 260 48 C 350 56, 396 144, 376 244" stroke="#6EE7B7" stroke-opacity="0.5" stroke-width="1.8" stroke-linecap="round"/>
-
-          <!-- Puntos luminosos discretos sobre la órbita -->
-          <circle class="dot-orbit" cx="62" cy="162" r="4.5" fill="#6EE7B7"/>
-          <circle class="dot-orbit d2" cx="260" cy="48" r="5" fill="#38BDF8"/>
-          <circle class="dot-orbit d3" cx="378" cy="212" r="4.5" fill="#34D399"/>
+          <!-- Halo suave de fondo -->
+          <circle cx="210" cy="195" r="160" fill="url(#heroGlow)"/>
 
           <!-- Sombra suave inferior -->
           <ellipse cx="210" cy="340" rx="94" ry="12" fill="#030D08" fill-opacity="0.52"/>
